@@ -1,0 +1,78 @@
+@charset "utf-8";
+.media-upload-form .media-item {
+padding-bottom:10px;
+}
+#media-items .media-item .pinkynail{
+max-height:6em;
+max-width:6em;
+}
+.media-upload-form #media-items .media-item{
+min-height:6em;
+}
+
+#cft .box{
+border:1px solid #ccc;
+margin-bottom: 0.5em;
+border-radius: 2px;
+border-top: 3px solid #ccc;
+
+}
+
+.cft .box:before{
+display: block;
+border-bottom: 1px solid #ccc;
+text-align: center;
+padding: 0.5em;
+font-weight: bold;
+background: #333;
+color: #fff;
+}
+
+textarea.uploadsonly {
+display: none;
+}
+
+
+#cft .box.media dl:first-child:before{
+content: "「メディアピッカーで選択」→一覧から画像を選び→「これを使用する」クリックで決定";
+display: block;
+border-bottom: 1px solid #ccc;
+margin-bottom: 0.5em;
+padding: 0.5em;
+}
+
+#cft > div > div:after{
+height:0;
+visibility:hidden;
+content:".";
+display:block;
+clear:both;
+}
+#my_custom_gazo_area h2.ui-sortable-handle + .inside:before{
+content: "「画像を設定」→画像を選択して「投稿に挿入」で決定"
+}
+
+
+
+
+#cft .box.example-header dl:first-child:before{
+content: "建物の概要";
+display: block;
+font-weight: bold;
+color: #fff;
+background: #222;
+border-bottom: 1px solid #ccc;
+margin-bottom: 0.5em;
+padding: 0.5em;
+}
+
+#cft .box.story-gallery dl:first-child:before{
+content: "写真の設定方法「メディアピッカーで選択」→一覧から画像を選び→「これを使用する」クリックで決定";
+display: block;
+font-weight: bold;
+color: #fff;
+background: #222;
+border-bottom: 1px solid #ccc;
+margin-bottom: 0.5em;
+padding: 0.5em;
+}

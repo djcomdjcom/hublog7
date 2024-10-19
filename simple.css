@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body.simple-page{
+	font-size:12px;
+	background:#FFF8CA;
+	color:#666;
+}
+
+body.simple-page.page-id-87{
+	background:#E4EFF8;
+}
+body.simple-page p {
+	margin-right:0;
+}
+.simple-hudden{
+	display:none;
+}
+
+
+
+h1{
+	font-size:1.1em;
+	margin-bottom:0.2em;
+}
+h2,
+h3,
+h4,
+h5
+{
+	font-size:1.2em;
+	margin-bottom:0.2em;
+}
+p{
+	margin-top:0.2em;
+}
+
+body.simple-page .wp_social_bookmarking_light{
+	display:none;
+}

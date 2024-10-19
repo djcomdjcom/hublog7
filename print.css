@@ -1,0 +1,51 @@
+@charset "utf-8";
+/*
+Theme Name: 印刷用CSS
+Description: 不動産標準
+Version: 2.0.0 ベータ1
+Author: 株式会社デジコム
+Author URI: http://www.djcom.jp/
+Template: hublog-c
+*/
+
+.uitabtoindex,
+#footer-widget-area,
+#foot-inquiry,
+#menu-header_link,
+#sidebar,
+
+#content.type-fudo .inquiry-single,
+.back-to-index,
+#twtr-widget-1,
+#map-tabs_search,
+#googlemap-bukken #maps .gels-form.gels-form-v3
+
+{
+	display:none;
+}
+
+.ui-tabs-toggle .tab-selection a,
+.title{
+	text-indent:0;
+	overflow:visible;
+}
+
+
+#googlemap-bukken #google_map{
+	width:620px !important;
+	}
+
+
+#foot-info{
+	margin:0;
+}
+
+#foot-shopinfo{
+	border-top:2px solid #666;
+	padding:0;
+	margin:0;
+}
+#footer .cr{
+	border-top:1px dotted #666;
+	padding:5px 0 0;
+}

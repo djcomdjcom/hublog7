@@ -1,0 +1,67 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;900&display=swap');
+
+body{
+font-family: 'Noto Sans JP', sans-serif;
+color: #707070;
+}
+
+.mincho{
+font-family: 'Noto Serif JP', serif;
+}
+
+
+/*AddQuickTag*/
+.txt36{
+	font-size: 1.9em;
+}
+.txt24{
+	font-size: 1.6em;
+}
+.txt18{
+	font-size: 1.3em;
+}
+.txt14{
+	font-size: 1.1em;
+}
+.txt12{
+	font-size: 0.9em;
+}
+.txt8{
+	font-size:0.75em;
+}
+br.sponly{
+}
+@media screen and (min-width: 800px) {
+
+.txt36{
+	font-size: 36pt;
+}
+.txt24{
+	font-size: 24pt;
+}
+.txt18{
+	font-size: 18pt;
+}
+.txt14{
+	font-size: 14pt;
+}
+.txt12{
+	font-size: 12pt;
+}
+.txt10{
+	font-size: 10pt;
+}
+.txt8{
+	font-size: 8pt;
+}
+	br.sponly{
+		display: none;
+	}
+}
+@media screen and (max-width: 799px) {
+
+br.pconly{
+	display: none;
+}
+}

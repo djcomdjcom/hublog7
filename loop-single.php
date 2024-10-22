@@ -32,7 +32,6 @@ if ( in_category( array( 'reform', 'beforeafter' ) ) ) {
 $cat_parent = 0;
 $cat_bukken = 0;
 $column_class = 'narrowcolumn';
-
 $post_id_example = ( post_custom( 'voice-inc_example' ) );
 $post_id_voice = ( post_custom( 'example-inc_voice' ) );
 

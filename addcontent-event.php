@@ -8,8 +8,10 @@
  */
 ?>
 <?php if (in_category('event-closed')) : ?>
-<p class="event-closed text-center lead"> このイベントは終了しました。<br />
+<div class="addcontent-event">
+<p class="event-closed text-center "> このイベントは終了しました。<br />
 ありがとうございました。 </p>
+</div>
 <?php else  :?>
 <?php if (post_custom('event-date')) :	?>
 <div id="addcontent-event" class="row p-4 mx-0 mb-5">

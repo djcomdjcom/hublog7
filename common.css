@@ -2737,6 +2737,12 @@ padding: 0.7em;
 
 */
 /*Event*/
+.addcontent-event .event-closed{
+	border: 1px solid #730000;
+	padding: 1rem;
+}
+
+
 .event-hour, .event-at, .event-date {
   display: block;
 }

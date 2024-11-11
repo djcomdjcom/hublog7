@@ -2,7 +2,7 @@
 /**
 template name: ★リノベーション
  * @テーマ名	hublog7
- * @更新日付	2024.10.04
+ * @更新日付	2024.11.11
  *
  */
 get_header();
@@ -85,5 +85,53 @@ document.addEventListener('scroll', function() {
         pagetab.classList.remove('fixed');
     }
 });
+	
+
+// ページ内リンクのポジションを　pagetabに反映	
+	document.addEventListener('DOMContentLoaded', function() {
+    // 初期読み込み時にクラスを更新
+    updateCurrentClass();
+
+    // スクロールイベントを監視
+    window.addEventListener('scroll', function() {
+        updateCurrentClass(); // スクロールごとにクラスを更新
+    });
+
+    // アンカーリンクのクリック時にクラスを更新
+    var links = document.querySelectorAll('.pagetab.pagetab-main ul.menu > li a');
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            setTimeout(updateCurrentClass, 100); // ページがスクロールしてから更新
+        });
+    });
+});
+
+// 現在のスクロール位置に基づいて .current クラスを付加
+function updateCurrentClass() {
+    var currentPath = window.location.pathname;
+    var links = document.querySelectorAll('.pagetab.pagetab-main ul.menu > li a');
+    var buffer = 10; // スクロール位置の微調整用
+
+    links.forEach(function(link) {
+        var linkHref = link.getAttribute('href');
+        // ハッシュがある場合のみチェック
+        if (linkHref.includes('#')) {
+            var targetId = linkHref.split('#')[1];
+            var targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                var targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - buffer;
+
+                // 現在のスクロール位置がターゲットの位置にある場合に current クラスを付加
+                if (window.scrollY >= targetPosition && window.scrollY < targetPosition + targetElement.offsetHeight) {
+                    link.parentElement.classList.add('current');
+                } else {
+                    link.parentElement.classList.remove('current');
+                }
+            }
+        }
+    });
+}
+		
 </script>
 <?php get_footer(); ?>

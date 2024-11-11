@@ -2,7 +2,7 @@
 /**
 template name: ★リフォーム
  * @テーマ名	hublog7
- * @更新日付	2024.10.04
+ * @更新日付	2024.11.11
  *
  */
 get_header();
@@ -15,13 +15,9 @@ get_header();
       </span></h1>
   </header>
   <article class="entry-content wrapper">
-	  
-
-<div class="pagetab pagetab-main">
-  <?php wp_nav_menu(array('theme_location'=>'reform-nav', 'fallback_cb'=>'nothing_to_do')); ?>
-</div>
-	  
-	  
+    <div class="pagetab pagetab-main">
+      <?php wp_nav_menu(array('theme_location'=>'reform-nav', 'fallback_cb'=>'nothing_to_do')); ?>
+    </div>
     <?php the_content(); ?>
     <?php if ( current_user_can( 'administrator' ) ) :?>
     <p class="edit_theme"><a target="_blank" href="/wp-admin/theme-editor.php?file=html%2F<?php echo $slug_name = $post->post_name; ?>.php&theme=<?php echo get_stylesheet('name'); ?>" title="/wp-admin/theme-editor.php?file=html%2F<?php echo $slug_name = $post->post_name; ?>.php&theme=<?php echo get_stylesheet('name'); ?>"> このincludeテーマを編集 </a></p>
@@ -40,7 +36,6 @@ get_header();
   </article>
   <!-- .entry-content -->
   
-
   <?php get_template_part('releated-posts');// posts_in_page ?>
   
   <!--商品ページ共通-->
@@ -60,7 +55,7 @@ get_header();
   </footer>
   <!-- .entry-utility --> 
 </article>
-<!--.hentry-->
+<!--.hentry--> 
 <script>
 document.addEventListener('scroll', function() {
     var pagetab = document.querySelector('.pagetab.pagetab-main');
@@ -72,7 +67,9 @@ document.addEventListener('scroll', function() {
         pagetab.classList.remove('fixed');
     }
 });
+
 	
+// ページ内リンクのポジションを　pagetabに反映	
 	document.addEventListener('DOMContentLoaded', function() {
     // 初期読み込み時にクラスを更新
     updateCurrentClass();
@@ -119,5 +116,4 @@ function updateCurrentClass() {
 }
 	
 </script>
-
 <?php get_footer(); ?>

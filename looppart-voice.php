@@ -2,12 +2,12 @@
 /**
  * looppart-voice.php
  *
- * @テーマ名	hublog-c
- * @更新日付	2011.03.10
+ * @テーマ名	hublog7
+ * @更新日付	2024.11.14
  *
  */
 ?>
-<article class="post-<?php the_ID(); ?> style-example post  p-2 p-sm-3 pb-md-3 linkarea">
+<article class="post-<?php the_ID(); ?> style-voice post p-2 p-sm-3 pb-md-3 linkarea">
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>

@@ -7,7 +7,7 @@
  *
  */
 ?>
-<article class="post-<?php the_ID(); ?> post linkarea style-event row p-4  <?php if (in_category('event-closed')) echo 'closed'; ?>">
+<article class="post-<?php the_ID(); ?> post linkarea style-event row px-4 pt-4  <?php if (in_category('event-closed')) echo 'closed'; ?>">
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>

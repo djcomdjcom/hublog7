@@ -1,7 +1,7 @@
 <div class="snslink wrapper">
   <ul class="flexbox justify-content-around">
     <?php if (get_option('profile_sns_line')): ?>
-    <li class=""> <a target="_blank" class="w100" href="http://line.me/ti/p/%40<?php echo get_option('profile_sns_line'); ?>" >
+    <li class="snslink_line"> <a target="_blank" class="w100" href="http://line.me/ti/p/%40<?php echo get_option('profile_sns_line'); ?>" >
       <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
         <title><?php echo get_option('profile_corporate_name'); ?>のline公式アカウント</title>
         <g id="snsicon-line" transform="translate(-761 -2899)">
@@ -11,7 +11,7 @@
       </a> </li>
     <?php endif;?>
     <?php if (get_option('profile_sns_ytch')): ?>
-    <li class=""> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_ytch'); ?>">
+    <li class="snslink_yt"> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_ytch'); ?>">
       <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
         <title><?php echo get_option('profile_corporate_name'); ?>のYou Tubeチャンネル</title>
         <g id="snsicon-yt" transform="translate(-836 -2899)">
@@ -21,7 +21,7 @@
       </a> </li>
     <?php endif;?>
     <?php if (get_option('profile_sns_tw')): ?>
-    <li class=""> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_tw'); ?>">
+    <li class="snslink_tw"> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_tw'); ?>">
 		
 		<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1197.96 1197.96"><title><?php echo get_option('profile_corporate_name'); ?>のX（twitter）</title><g id="snsicon-tw"><path class="cls-1" d="M685.09,528.15l336.98-391.71h-79.85l-292.6,340.12-233.7-340.12H146.38l353.4,514.32-353.4,410.77h79.86l308.99-359.17,246.8,359.17h269.54l-366.5-533.37h.02ZM575.72,655.28l-35.81-51.21L255.01,196.55h122.66l229.92,328.88,35.81,51.21,298.86,427.49h-122.66l-243.88-348.84v-.02Z" fill="#fff"/></g></svg>
 		
@@ -29,7 +29,7 @@
       </a> </li>
     <?php endif;?>
     <?php if (get_option('profile_sns_ig')): ?>
-    <li class=""> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_ig'); ?>">
+    <li class="snslink_ig"> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_ig'); ?>">
       <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
         <title><?php echo get_option('profile_corporate_name'); ?>のInstagram</title>
         <g id="snsicon-ig" transform="translate(-985 -2899)">
@@ -39,7 +39,7 @@
       </a> </li>
     <?php endif;?>
     <?php if (get_option('profile_sns_pin')): ?>
-    <li class=""> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_pin'); ?>">
+    <li class="snslink_pin"> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_pin'); ?>">
       <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
         <title><?php echo get_option('profile_corporate_name'); ?>のPintarestチャンネル</title>
         <g id="snsicon-pin" transform="translate(-1060 -2899)">
@@ -49,7 +49,7 @@
       </a> </li>
     <?php endif;?>
     <?php if (get_option('profile_sns_fb')): ?>
-    <li class=""> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_fb'); ?>">
+    <li class="snslink_fb"> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_fb'); ?>">
       <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
         <title><?php echo get_option('profile_corporate_name'); ?>のfacebook</title>
         <g id="snsicon-fb" transform="translate(-1135 -2899)">

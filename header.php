@@ -57,4 +57,4 @@ $topinfo_template = $hublog6->get_page_type();
 $looppart = apply_filters('looppart', '');
 ?>	
 <?php //get_template_part('topinfo', $topinfo_template); ?>
-<main role="main" id="main" <?php body_class(); ?> ontouchstart="">
+<main role="main" id="main" <?php body_class('rel_lb'); ?> ontouchstart="">

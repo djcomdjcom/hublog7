@@ -17,7 +17,7 @@ if ($remove_gallery !== 'gallery_off' && $renove_gallery !== 'gallery_off'):
   <script>
 jQuery(function($){
 $('#galleryslider .gallery-size-large').addClass('slider_thumb slider'); 
-$('#galleryslider .gallery-size-thumbnail ').addClass('thumb container mx-auto pb-3 pb-md-4'); 
+$('#galleryslider .gallery-size-thumbnail ').addClass('thumb wrapper mx-auto pb-3 pb-md-3'); 
 
 $(document).ready(function () {
 	$('.slider_thumb').slick({
@@ -135,9 +135,9 @@ border-bottom: 1px solid #efefef;
 </div>
 <!--example-slider-->
 <?php endif ?>
-<article id="example-content" class=" rel_lb">
+<article id="example-content" class="py-4 py-md-5 rel_lb">
   <?php if(post_custom('catchcopy')) :?>
-  <h2 class="title py-4 mb-4 mb-md-5"> <span class="catchcopy mincho"> <?php echo nl2br ( post_custom('catchcopy') ); ?> </span> </h2>
+  <h2 class="title mt-3 py-md-5 px-sm-3"> <span class="catchcopy mincho"> <?php echo nl2br ( post_custom('catchcopy') ); ?> </span> </h2>
   <?php endif ;?>
   <?php if (post_custom('example-name') || post_custom('example-family') || post_custom('example-area') || post_custom('example-kouhou') || post_custom('example-shikichi') || post_custom('example-yuka') || post_custom ('example-C') || post_custom ('example-Q') || post_custom ('example-UA') ) : ?>
   <div class="row justify-content-between mx-auto px-0 pt-5">

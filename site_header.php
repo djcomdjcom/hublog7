@@ -7,7 +7,7 @@
 ?>
 
 <header id="header">
-<div id="globalheader">
+<div id="globalheader" class="d-flex">
 <div class="sitetitle maxw-260 pl-5 pl-md-0">
 <a class="w100 maxw-210" href="/" >
 <?php if (is_home() ): ?>

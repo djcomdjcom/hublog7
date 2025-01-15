@@ -186,8 +186,8 @@ wp_reset_query();
           ?>
         </div>
       </div>
-      <div id="foot-offer" class="d-block d-xl-none">
-        <ul class="flexbox maxw-800 mx-auto">
+      <div id="foot-offer" class="">
+        <ul class="flexbox ml-auto">
           <?php get_template_part( 'links-offer' ); ?>
         </ul>
       </div>

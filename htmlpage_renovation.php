@@ -70,31 +70,7 @@ $gettemplate01 = ( post_custom( 'gettempale01' ) );
 </article>
 <!--.hentry-->
 
-<style>
-.modal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
-	justify-content: center;
-	align-items: center;
-	z-index: 1000;
-}
-.modal-content {
-	background: #fff;
-	padding: 20px;
-	border-radius: 8px;
-	width: 90%;
-	max-width: 500px;
-	overflow-y: auto;
-}
-.modal.active {
-	display: flex;
-}
-</style>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // モーダルの生成
@@ -102,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     modal.classList.add('modal');
     modal.innerHTML = `
         <div class="modal-content">
-            <button class="modal-close" style="float:right;">閉じる</button>
+            <button class="modal-close close"><span aria-hidden="true">×</span></button>
             ${document.querySelector('.left_nav').innerHTML}
         </div>
     `;
@@ -196,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function updateCurrentClass() {
     var currentPath = window.location.pathname;
     var links = document.querySelectorAll('.left_nav ul.menu > li a');
-    var buffer = 10; // スクロール位置の微調整用
+    var buffer = 20; // スクロール位置の微調整用
 
     links.forEach(function(link) {
         var linkHref = link.getAttribute('href');

@@ -59,16 +59,5 @@ $gettemplate01 = ( post_custom( 'gettempale01' ) );
 </footer>
 <!-- .entry-utility -->
 </article>
-<script>
-document.addEventListener('scroll', function() {
-    var pagetab = document.querySelector('.pagetab.pagetab-main');
-    var scrollY = window.scrollY || window.pageYOffset;
-    
-    if (scrollY >= 62) {
-        pagetab.classList.add('fixed');
-    } else {
-        pagetab.classList.remove('fixed');
-    }
-});
-</script>
+
 <?php get_footer(); ?>

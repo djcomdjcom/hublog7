@@ -8,7 +8,7 @@
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
-  <span href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'Permalink to: ', 'after' => '' ) ); ?>" class="thumbnail col-5 m-0"> <span class="attachment">
+  <span class="thumbnail col-5 m-0"> <span class="attachment">
   <?php
   if ( function_exists( 'the_post_image' ) ) {
     if ( the_post_image( array( 400, 400 ) ) === false ) {

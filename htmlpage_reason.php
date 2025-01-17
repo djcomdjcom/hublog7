@@ -1,8 +1,8 @@
 <?php
 /**
-template name: ★リフォーム
+template name: ★選ばれる理由
  * @テーマ名	hublog7
- * @更新日付	2024.11.11
+ * @更新日付	2024.12.08
  *
  */
 get_header();
@@ -19,14 +19,69 @@ display: inline;
 }
 </style>
 <?php the_post(); ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('hentry builder_content reform '); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('hentry builder_content reason '); ?>>
 <header class="wrapper builder_content_ttl mx-fit">
 <h1 class="entry-title"><?php the_title(); ?></h1>
 </header>
 <article class="left_nav_wrapper anchor wrapper pb-5">
   <div class="left_nav pagetab pb-md-4 pt-md-5">
-    <?php wp_nav_menu(array('theme_location'=>'reform-nav', 'fallback_cb'=>'nothing_to_do')); ?>
+	  <div class="menu-reason-nav-container">
+    <?php
+    // WP_Query
+    $args = array(
+      'post_type' => 'page',
+      'name' => 'home',
+      'posts_per_page' => 1,
+      'no_found_rows' => true,
+    );
+
+    $the_query = new WP_Query( $args );
+
+    if ( $the_query->have_posts() ):
+      while ( $the_query->have_posts() ): $the_query->the_post();
+
+    // ここに該当のコードを挿入
+    ?>
+    <?php
+    $page_obj = get_page_by_path( 'home' );
+    $page = get_post( $page_obj );
+    $reason_items = SCF::get( 'reason', $page->ID );
+
+    if ( $reason_items ) {
+      $counter = 1; // カウンター変数を初期化
+      echo '<ul class="menu"><li class="current-menu-ancestor"><a >選ばれる理由</a><ul class="sub-menu">';
+      foreach ( $reason_items as $fields ) {
+        if ( !empty( $fields[ 'rsn_ttl' ] ) ) {
+          echo '<li class="reason-item reason-item_' . sprintf( "%03d", $counter ) . '">';
+
+
+          // カスタムフィールド 'rsn_ttl' の値を取得
+          $rsn_ttl = $fields[ 'rsn_ttl' ];
+
+          // ショートコードを実行してカスタムフィールドの値を表示
+          $rsn_ttl = do_shortcode( $rsn_ttl );
+
+          echo '<a class="" href="' . $fields[ 'rsn_link' ] . '" >';
+          echo nl2br( esc_html( $rsn_ttl ) ), '';
+          echo '</a>';
+
+
+          echo '</li>';
+          $counter++; // カウンターをインクリメント
+        }
+      }
+      echo '</ul></li></ul>';
+    }
+
+    //        edit_post_link(__('Edit'), '');
+    ?>
+    <?php endwhile; ?>
+    <?php
+    endif;
+    wp_reset_postdata();
+    ?>
   </div>
+	  </div>
   <div class="entry-content">
     <?php the_content(); ?>
     <?php if ( current_user_can( 'administrator' ) ) :?>
@@ -44,10 +99,9 @@ display: inline;
     ?>
     <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
   </div>
-  <!--.entry-content --> 
-  
+  <!-- .entry-content --> 
 </article>
-<!-- .left_nav_wrapper-->
+<!--left_nav_wrapper-->
 
 <?php get_template_part('releated-posts');// posts_in_page ?>
 
@@ -69,6 +123,7 @@ $gettemplate01 = ( post_custom( 'gettempale01' ) );
 <!-- .entry-utility -->
 </article>
 <!--.hentry-->
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {

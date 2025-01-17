@@ -26,7 +26,7 @@ html a{
 }
 }
 
-@media screen and (min-width:1280px) {
+@media screen and (min-width:1200px) {
 main#main{
 	padding: 0 0;
 	margin-left: auto;
@@ -1371,7 +1371,7 @@ dl.flow dd:last-child:after {
 .anchor:before {
 	content: " ";
 	margin-top: -5rem;
-	height: 5rem;
+	height: 7rem;
 	display: block;
 	visibility: hidden;
 }

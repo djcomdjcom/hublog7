@@ -8,6 +8,19 @@ template name: ★選ばれる理由
 get_header();
 ?>
 <style>
+.left_nav{
+	font-size: 14px;
+}
+.left_nav.pagetab > div{
+width: 90%;
+}
+	.left_nav.pagetab li{
+	}
+	.left_nav.pagetab li a{
+	background: #0b2044;
+		color: #fff;
+		margin-bottom: 0.3rem;
+}
 #breadcrumb{
 text-indent: -110%;
 height: 0;

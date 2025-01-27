@@ -909,12 +909,18 @@ padding: 1rem;
 .entry-title, .index-title, .page-title, #post-title {
   font-size: 1.4em;
   color: #000;
-  padding: 1em;
-
-  margin-top: 0;
-  padding-left: 15px;
-  padding-right: 15px;
 }
+
+.entry-title, .index-title, .page-title{
+	padding: 1rem ;
+}
+@media screen and (max-width: 1199.98px) {
+.entry-title, .index-title, .page-title{
+	padding: 1rem 0;
+}
+
+}
+
 .entry-title.smallheader {
   font-size: 1.0em;
   padding: 0.5em 0 0;
@@ -2515,6 +2521,10 @@ padding: 0.7em;
   text-align: left;
 }
 /* ARCIVE example */
+
+.posts .post.style-blog .title {
+	font-size: 1.15rem;
+}
 .posts .post.style-headline .tmb-icon {
   position: relative;
   margin-bottom: 0.5em;

@@ -66,7 +66,6 @@ display: inline;
 <!-- .entry-utility -->
 </article>
 <!--.hentry-->
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // モーダルの生成
@@ -74,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     modal.classList.add('modal');
     modal.innerHTML = `
         <div class="modal-content">
-            <button class="modal-close close"><span aria-hidden="true">×</span></button>
+            <button class="modal-close close"><span aria-hidden="true">×</span></button>            
             ${document.querySelector('.left_nav').innerHTML}
         </div>
     `;
@@ -88,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // モーダル表示用のクリックイベント
     const showModal = function (e) {
-        if (mediaQuery.matches) { // 画面幅が767.98px以下の場合
+        if (mediaQuery.matches) {
             e.preventDefault();
             modal.classList.add('active');
         }
@@ -110,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // 画面サイズ変更時の動作を確認（オプション: 再設定のため）
+    // 画面サイズ変更時の動作を確認
     mediaQuery.addEventListener('change', function () {
         if (!mediaQuery.matches) {
             modal.classList.remove('active');
@@ -118,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-	document.addEventListener('scroll', function () {
+document.addEventListener('scroll', function () {
     var leftNav = document.querySelector('.left_nav');
     var entryContent = document.querySelector('.entry-content');
 
@@ -127,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var scrollY = window.scrollY || window.pageYOffset;
     var entryContentBottom = entryContent.getBoundingClientRect().bottom;
     var viewportHeight = window.innerHeight;
-    var triggerPoint = viewportHeight * 0.8; // 画面の80%位置
+    var triggerPoint = viewportHeight * 0.5; // 画面の50%位置
 
     // 200pxスクロール時点で .fixed を付与
     if (scrollY >= 200) {
@@ -144,52 +143,109 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
-// ページ内リンクのポジションを　left_navに反映	
-	document.addEventListener('DOMContentLoaded', function() {
+// ページ内リンクのポジションを left_nav に反映
+document.addEventListener('DOMContentLoaded', function () {
     // 初期読み込み時にクラスを更新
     updateCurrentClass();
 
     // スクロールイベントを監視
-    window.addEventListener('scroll', function() {
-        updateCurrentClass(); // スクロールごとにクラスを更新
+    window.addEventListener('scroll', function () {
+        updateCurrentClass();
     });
 
     // アンカーリンクのクリック時にクラスを更新
     var links = document.querySelectorAll('.left_nav ul.menu > li a');
-    links.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            setTimeout(updateCurrentClass, 100); // ページがスクロールしてから更新
+    links.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            setTimeout(updateCurrentClass, 100);
+        });
+    });
+});
+
+	
+document.addEventListener('DOMContentLoaded', function () {
+    // 初期読み込み時にクラスを更新
+    updateCurrentClass();
+
+    // スクロールイベントを監視
+    window.addEventListener('scroll', function () {
+        updateCurrentClass(); // スクロールごとにクラスを更新
+    });
+
+    // アンカーリンクのクリック時にクラスを更新
+    const links = document.querySelectorAll('.left_nav ul.menu > li a');
+    links.forEach(function (link) {
+        link.addEventListener('click', function () {
+            setTimeout(updateCurrentClass, 100); // ページ遷移後にクラスを更新
         });
     });
 });
 
 // 現在のスクロール位置に基づいて .current クラスを付加
 function updateCurrentClass() {
-    var currentPath = window.location.pathname;
-    var links = document.querySelectorAll('.left_nav ul.menu > li a');
-    var buffer = 20; // スクロール位置の微調整用
+    const links = document.querySelectorAll('.left_nav ul.menu > li a');
+    const buffer = 20; // スクロール位置の微調整用
 
-    links.forEach(function(link) {
-        var linkHref = link.getAttribute('href');
-        // ハッシュがある場合のみチェック
+    // すべてのリンクから current/not-current クラスを削除
+    links.forEach(function (link) {
+        link.parentElement.classList.remove('current', 'not-current');
+    });
+
+    let foundCurrent = false;
+
+    // 現在のスクロール位置に基づいてクラスを付加
+    links.forEach(function (link) {
+        const linkHref = link.getAttribute('href');
         if (linkHref.includes('#')) {
-            var targetId = linkHref.split('#')[1];
-            var targetElement = document.getElementById(targetId);
+            const targetId = linkHref.split('#')[1];
+            const targetElement = document.getElementById(targetId);
+
 
             if (targetElement) {
-                var targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - buffer;
+                const targetPosition =
+                    targetElement.getBoundingClientRect().top +
+                    window.scrollY -
+                    buffer;
 
-                // 現在のスクロール位置がターゲットの位置にある場合に current クラスを付加
-                if (window.scrollY >= targetPosition && window.scrollY < targetPosition + targetElement.offsetHeight) {
+                // 現在のスクロール位置がターゲット範囲内にある場合
+                if (
+                    window.scrollY >= targetPosition &&
+                    window.scrollY < targetPosition + targetElement.offsetHeight
+                ) {
                     link.parentElement.classList.add('current');
-                } else {
-                    link.parentElement.classList.remove('current');
+                    foundCurrent = true;
+
+                    // 子メニューの兄弟要素に .not-current を付加
+                    const siblings = Array.from(
+                        link.parentElement.parentElement.children
+                    ).filter((sibling) => sibling !== link.parentElement);
+
+                    siblings.forEach((sibling) => {
+                        sibling.classList.add('not-current');
+                    });
+
+                    // 親メニューに .has-current クラスを付加
+                    const parentMenu = link.closest('.menu-item-has-children');
+                    if (parentMenu) {
+                        parentMenu.classList.add('has-current');
+                        parentMenu.classList.remove('not-current');
+                    }
                 }
             }
         }
     });
+
+    // 他の親メニューに .not-current を付加
+    if (!foundCurrent) {
+        const parentMenus = document.querySelectorAll(
+            '.menu-item-has-children'
+        );
+        parentMenus.forEach(function (menu) {
+            menu.classList.remove('has-current');
+            menu.classList.add('not-current');
+        });
+    }
 }
-		
 </script>
+
 <?php get_footer(); ?>

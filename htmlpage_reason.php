@@ -8,19 +8,8 @@ template name: ★選ばれる理由
 get_header();
 ?>
 <style>
-.left_nav{
-	font-size: 14px;
-}
-.left_nav.pagetab > div{
-width: 90%;
-}
-	.left_nav.pagetab li{
-	}
-	.left_nav.pagetab li a{
-	background: #0b2044;
-		color: #fff;
-		margin-bottom: 0.3rem;
-}
+
+	
 #breadcrumb{
 text-indent: -110%;
 height: 0;
@@ -30,6 +19,50 @@ overflow: hidden;
 #breadcrumb *{
 display: inline;
 }
+
+	
+.left_nav{
+font-size: 14px;
+}
+.left_nav.pagetab > div{
+width: 90%;
+}
+.left_nav.pagetab li{
+}
+.left_nav.pagetab li .item_bg{
+border-radius: 0;
+bottom: 0;
+left: 0;
+right: 0;
+top: 0;
+}
+.left_nav.pagetab li .item_bg{
+border:0;
+}
+	
+	
+.left_nav.pagetab li figure{
+display: none;
+}
+.left_nav.pagetab li.reason-item{}
+.left_nav.pagetab li.reason-item:before{
+	content: none;
+	}
+	
+.modal-content li.reason-item .to_detail,
+.left_nav.pagetab li.reason-item .to_detail{
+	display: none;
+}
+	
+.modal-content .reason-items .reason-item .icon {
+    display: none;
+  }
+.modal-content .reason-items .reason-item .rsn_ttl {
+color: #000;;
+}
+	.modal-content .reason-items .reason-item .item_bg{
+		background: transparent;
+	}
 </style>
 <?php the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hentry builder_content reason '); ?>>
@@ -39,6 +72,8 @@ display: inline;
 <article class="left_nav_wrapper anchor wrapper pb-5">
   <div class="left_nav pagetab pb-md-4 pt-md-5">
 	  <div class="menu-reason-nav-container">
+		  
+		  
     <?php
     // WP_Query
     $args = array(
@@ -55,6 +90,7 @@ display: inline;
 
     // ここに該当のコードを挿入
     ?>
+
     <?php
     $page_obj = get_page_by_path( 'home' );
     $page = get_post( $page_obj );
@@ -62,10 +98,14 @@ display: inline;
 
     if ( $reason_items ) {
       $counter = 1; // カウンター変数を初期化
-      echo '<ul class="menu"><li class="current-menu-ancestor"><a >選ばれる理由</a><ul class="sub-menu">';
+		
+      echo '<ul class="menu reason-items pl-0"><li class="current-menu-ancestor"><a class="p-2 mb-2 d-block">選ばれる理由</a><ul class="sub-menu">';
+		
       foreach ( $reason_items as $fields ) {
         if ( !empty( $fields[ 'rsn_ttl' ] ) ) {
-          echo '<li class="reason-item reason-item_' . sprintf( "%03d", $counter ) . '">';
+          echo '<li class="reason-item p-0 mb-md-2  reason-item_' . sprintf( "%03d", $counter ) . '">';
+
+          echo '<span class="item_bg"></span>';
 
 
           // カスタムフィールド 'rsn_ttl' の値を取得
@@ -74,9 +114,26 @@ display: inline;
           // ショートコードを実行してカスタムフィールドの値を表示
           $rsn_ttl = do_shortcode( $rsn_ttl );
 
+          // カスタムフィールド 'rsn_text_color' の値を取得
+          $rsn_text_color = $fields[ 'rsn_text_color' ];
+
+          if ( !empty( $fields[ 'rsn_icon' ] ) ) {
+            echo '<figure class="icon" ';
+            if ( !empty( $fields[ 'rsn_icon_color' ] ) ) {
+              echo 'style="color:', $fields[ 'rsn_icon_color' ], '"';
+            }
+            echo '>';
+            echo nl2br( $fields[ 'rsn_icon' ] ), '</figure>';
+          }
+
+
+          // フィールドを表示
+          echo '<p class="rsn_ttl p-1 m-0"';
+          echo ' style="color:', esc_attr( $rsn_text_color ), '"';
+          echo '>';
+          echo nl2br( esc_html( $rsn_ttl ) ), '</p>';
           echo '<a class="" href="' . $fields[ 'rsn_link' ] . '" >';
-          echo nl2br( esc_html( $rsn_ttl ) ), '';
-          echo '</a>';
+          echo '<span class="to_detail">詳しくはこちら</span></a>';
 
 
           echo '</li>';
@@ -85,14 +142,42 @@ display: inline;
       }
       echo '</ul></li></ul>';
     }
+	  
+	  
 
-    //        edit_post_link(__('Edit'), '');
+//    edit_post_link( __( 'Edit' ), '' );
     ?>
     <?php endwhile; ?>
+		  
+<style>
+<?php if ( post_custom('rsnset_cell_bg') ) :?>
+.reason-items .reason-item .item_bg{
+background: <?php echo post_custom('rsnset_cell_bg');?> ;
+}
+@media screen and (min-width: 768px) {
+.current-menu-ancestor > a{
+background: <?php echo post_custom('rsnset_cell_bg');?> ;
+}
+}
+
+<?php endif;?>
+<?php if ( post_custom('rsnset_text_color') ) :?>
+.reason-items .reason-item{color:<?php echo post_custom('rsnset_text_color');?> ;}
+	
+@media screen and (min-width: 768px) {
+.current-menu-ancestor > a{
+color:<?php echo post_custom('rsnset_text_color');?> ;
+}
+}
+<?php endif;?>
+</style>		  
     <?php
     endif;
     wp_reset_postdata();
     ?>
+		  
+		  
+		  
   </div>
 	  </div>
   <div class="entry-content">

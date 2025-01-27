@@ -6,7 +6,7 @@
  */
 ?>
 
-<article class="post-<?php the_ID(); ?> post row linkarea p-3 px-md-4 mx-auto mb-3 ">
+<article class="post-<?php the_ID(); ?> post style-blog row linkarea p-3 px-md-4 mx-auto mb-3 ">
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span title="新着" class="tmb-icon new">NEW</span>
   <?php endif; ?>
@@ -21,7 +21,7 @@
   }
   ?>
   </span> </span>
-  <div class="metabox col-8 my-2 px-0 pl-3"> <span class="date">
+  <div class="metabox col-8 my-2 px-0 pl-3"> <span class="date d-block py-sm-3">
     <?php the_time('Y/n/j') ?>
     </span>
     <p class="title mb-0"> <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s'), the_title_attribute('echo=0')); ?>">
@@ -30,7 +30,7 @@
     <?php if (in_category('event-closed')) : ?>
     <span class="event-closed cleartype"> このイベントは終了しました。ありがとうございました。 </span>
     <?php endif  ?>
-    <div class="excerpt d-none d-sm-block">
+    <div class="excerpt d-none d-sm-block pt-2">
       <?php the_excerpt(); ?>
     </div>
   </div>

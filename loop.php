@@ -37,7 +37,7 @@ else :$page_title = wp_title( '', false ) . __( ' の記事一覧' );
 endif;
 ?>
 <header class="entry-header wrapper mx-auto">
-  <h1 class="index-title entry-title col <?php echo $h1_class; ?>"><span><?php echo $page_title; ?></span></h1>
+  <h1 class="index-title entry-title <?php echo $h1_class; ?>"><span><?php echo $page_title; ?></span></h1>
 </header>
 <?php endif; //!is_home ?>
 <script>
@@ -50,10 +50,10 @@ jQuery('.posts .post.style-event .thumbnail').addClass('pr-md-5');
 });
 </script>
 <?php if (is_post_type_archive ( array('example','voice') ) || is_tax(array('ex_cat','voice_cat'))):?>
-<div class="wrapper px-3 px-xl-0">
+<div class="wrapper px-2 px-xl-0">
 <div <?php body_class( 'posts row justify-content-start' ); ?>>
 <?php else :?>
-<div class="wrapper maxw-1000 mx-auto pl-3 px-3">
+<div class="wrapper maxw-1000 mx-auto px-0 px-md-3">
   <div <?php body_class( 'posts mx-fit' ); ?>>
     <?php endif ;?>
     <?php

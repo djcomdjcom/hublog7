@@ -75,8 +75,8 @@ wp_reset_query();
       </div>
       <?php endif ;//profile_opening_hours||profile_holiday?>
     </div>
-    <div class="global-navi-menu text-left mt-4">
-      <div class=" f1">
+    <div class="global-navi-menu global-navi_widgets row  text-left justify-content-start mx-auto px-0 mt-5 ">
+      <div class=" f1 col-md-3">
         <?php
         if ( has_nav_menu( 'f1' ) ) {
           wp_nav_menu( array(
@@ -85,7 +85,7 @@ wp_reset_query();
         }
         ?>
       </div>
-      <div class=" f2">
+      <div class=" f2 col-md-3">
         <?php
         if ( has_nav_menu( 'f2' ) ) {
           wp_nav_menu( array(
@@ -94,7 +94,7 @@ wp_reset_query();
         }
         ?>
       </div>
-      <div class=" f3">
+      <div class=" f3 col-md-3">
         <?php
         if ( has_nav_menu( 'f3' ) ) {
           wp_nav_menu( array(
@@ -103,7 +103,7 @@ wp_reset_query();
         }
         ?>
       </div>
-      <div class=" f4">
+      <div class=" f4 col-md-3">
         <?php
         if ( has_nav_menu( 'f4' ) ) {
           wp_nav_menu( array(
@@ -112,7 +112,7 @@ wp_reset_query();
         }
         ?>
       </div>
-      <div class=" f5">
+      <div class=" f5 col-md-3">
         <?php
         if ( has_nav_menu( 'f5' ) ) {
           wp_nav_menu( array(
@@ -139,8 +139,9 @@ wp_reset_query();
 <footer class="" id="footer">
   <div id="footer_inbox">
     <div class="wrapper pt-5 pb-5">
-      <div class="footer-navi-menu text-left my-4">
-        <div class=" f1">
+		
+      <div class="footer-navi-menu text-left my-4 row justify-content-between ">
+        <div class=" f1 col-sm-6 col-md-3">
           <?php
           if ( has_nav_menu( 'f1' ) ) {
             wp_nav_menu( array(
@@ -149,7 +150,7 @@ wp_reset_query();
           }
           ?>
         </div>
-        <div class=" f2">
+        <div class=" f2 col-sm-6 col-md-3">
           <?php
           if ( has_nav_menu( 'f2' ) ) {
             wp_nav_menu( array(
@@ -158,7 +159,7 @@ wp_reset_query();
           }
           ?>
         </div>
-        <div class=" f3">
+        <div class=" f3 col-sm-6 col-md-3">
           <?php
           if ( has_nav_menu( 'f3' ) ) {
             wp_nav_menu( array(
@@ -167,7 +168,7 @@ wp_reset_query();
           }
           ?>
         </div>
-        <div class=" f4">
+        <div class=" f4 col-sm-6 col-md-3">
           <?php
           if ( has_nav_menu( 'f4' ) ) {
             wp_nav_menu( array(
@@ -196,7 +197,7 @@ wp_reset_query();
       <?php get_template_part('inc', 'footer_bnrs'); ?>
       <div class="footer-contact mt-4 mb-2 container-fluid">
         <div class="row mb-5 mt-5 px-5 px-lg-0">
-          <div class="footer-contact-inner1 col-md-4 mb-4"> <a href="/" class="w100 maxw-300 mx-auto">
+          <div class="footer-contact-inner1 col-md-4 mb-4"> <a href="/" class="w100 maxw-200 mx-auto">
             <?php
             $footer_logo = get_theme_mod( 'footer_logo' );
             if ( $footer_logo ): ?>

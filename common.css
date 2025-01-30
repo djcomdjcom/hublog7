@@ -2,7 +2,7 @@
 /**
 * common.css
  * hublog7
- * 20241005
+ * 20241030
  */
 
 @import url("css/bootstrap.min.css");
@@ -19,7 +19,7 @@ html a{
 	color:#454545;
 }
 @media screen and (max-width: 1199.98px) {
-.mx-fit,
+.mx-fit,global-navi-menu
 .mx-fit.wrapper{
 	margin-left: -1rem !important;
 	margin-right: -1rem !important;
@@ -2593,6 +2593,8 @@ padding: 0.7em;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
+
+
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   display: block;
@@ -3305,7 +3307,8 @@ ul.business_set li > .ttl{
   .home-menu .sub-menu > .menu-item:not(:last-child) {
     border-bottom: none;
   }
-  #wrapper .global-navi-menu > div, #footer .footer-navi-menu > div {
+	
+  #footer .footer-navi-menu > div {
     display: block;
     width: 100%;
   }
@@ -3318,6 +3321,9 @@ ul.business_set li > .ttl{
     width: 100%;
     max-width: 100%;
   }
+	
+	
+	
   #global-navi .menu .sub-menu {
     background: rgba(0, 0, 0, 0.85);
   }
@@ -3364,17 +3370,17 @@ overflow:visible;
 }
 #wrapper #global-navi .global-navi-menu ul li {
   display: block;
-  padding: 20px 1vw;
+  padding: 0.2rem 0;
 	line-height: 1;
 }
-#wrapper #global-navi ul li a {
+#wrapper #global-navi #access ul li a {
 text-decoration: none;
 color: #fff;
 padding: 0.5rem;
 line-height: 1.5;
 display: block;
 }
-#wrapper #global-navi ul li a:after {
+#wrapper #global-navi #access ul li a:after {
 	content: "";
 	display: block;
 	width: 0;
@@ -3383,17 +3389,11 @@ display: block;
 	background: #ccc;
 	transition: .3s;
 }
-#wrapper #global-navi ul li a:hover:after {
+#wrapper #global-navi #access ul li a:hover:after {
 	width: 100%;
 	opacity: .5;
 }
 
-#wrapper #global-navi .global-navi-menu ul li {
-  display: block;
-  padding: 2px 8px;
-  min-width: 240px;
-  text-align: left;
-}
 #wrapper .btn-gnavi {
   position: fixed;
   top: 20px;
@@ -3478,50 +3478,13 @@ display: block;
   -webkit-transform: translateY(-10px) rotate(315deg);
   transform: translateY(-10px) rotate(315deg);
 }
-#wrapper .contents section p {
-  position: absolute;
-  top: 50%;
-  width: 30%;
-  line-height: 1.4;
-  font-size: 20px;
-  color: #fff;
-}
 .global-navi-inner {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
   color: #fff;
 }
-.global-navi-menu > div, .footer-navi-menu > div {
-  display: inline-block;
-}
-.global-navi-menu > div, .footer-navi-menu > div, .d-inline-block {
-  vertical-align: top;
-}
-.global-navi-menu > div h3, .footer-navi-menu > div h3 {
-  display: none;
-}
-@media screen and (max-width:1250px) {
-  /*.global-navi-menu{
-padding: 0 3vw;
-}
-*/
-}
-@media screen and (max-width:991.98px) {
-  .global-navi-inner {
-    margin: 30px auto;
-  }
-}
-@media screen and (max-width:1199.98px) {
-  .global-navi-menu ul {
-    margin-bottom: 20px;
-  }
-}
-@media screen and (max-width:767.98px) {
-  .global-navi-inner {
-    margin: 0px auto;
-  }
-}
+
 .snslink ul.flexbox > li{
 	width: calc( 100% / 7);
 }
@@ -3534,23 +3497,31 @@ padding: 0 3vw;
 	fill:#fff; 
 	max-width: 2.5rem;
 }
+.global-navi_widgets ul.menu{
+	padding-left: 0;
+}
 
-footer-widget-area:after {
-  height: 0;
-  visibility: hidden;
-  content: ".";
-  display: block;
-  clear: both;
+.global-navi_widgets ul.sub-menu{
+	padding-left: 1.5rem;
+	padding-top: 0.5rem;
 }
-#footer-widget-area {
-  overflow: hidden;
-  clear: both;
-  float: none;
-  padding: 2em 0;
-  max-width: 1000px;
-  margin: 0 auto;
-  border-bottom: 1px solid #ccc;
+
+
+
+@media screen and (max-width: 767.98px) {
+.global-navi_widgets .f1,
+.global-navi_widgets .f2,
+.global-navi_widgets .f3,
+.global-navi_widgets .f4	{
+	  display:none;
 }
+}
+	
+
+
+
+.footer-navi-menu {}
+
 #footer .cr {
   text-align: center;
   position: absolute;
@@ -3580,6 +3551,7 @@ footer-widget-area:after {
   display: block;
   text-align: right;
 }
+
 .edit_theme {
   display: block;
   position: fixed;

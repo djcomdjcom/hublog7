@@ -1,6 +1,6 @@
 <?php
 /**
- * hublog-lt/functions.php
+ * hublog7/functions.php
  */
 
 class Theme_Settings {
@@ -191,25 +191,30 @@ class Theme_Settings {
 	
 	
 
+function enqueue_scripts_styles() {
+    global $wp_styles;
 
-    function enqueue_scripts_styles() {
-        global $wp_styles;
+    $child_theme = wp_get_theme(); // 子テーマ
+    $parent_theme = wp_get_theme(get_template()); // 親テーマ
 
-        $child_theme = wp_get_theme(); //子テーマ
-        $parent_theme = wp_get_theme( get_template() ); //親テーマ
+    wp_enqueue_style('style-common', get_template_directory_uri() . '/common.css?' . $parent_theme->get('Version'));
+    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.min.css?' . $child_theme->get('Version'));
 
-        wp_enqueue_style( 'style-common', get_template_directory_uri() . '/common.css?' . $parent_theme->get( 'Version' ) );
-        wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.min.css?' . $child_theme->get( 'Version' ) );
+    wp_enqueue_style('for-ie', get_template_directory_uri() . '/css/ie.css', array('hublog-style'));
+    $wp_styles->add_data('for-ie', 'conditional', 'lt IE 9');
 
-        wp_enqueue_style( 'for-ie', get_template_directory_uri() . '/css/ie.css', array( 'hublog-style' ) );
-        $wp_styles->add_data( 'for-ie', 'conditional', 'lt IE 9' );
-
-        $print_css = '/print.css';
-        if ( file_exists( get_stylesheet_directory() . $print_css ) ) {
-            wp_enqueue_style( 'hublog-style-print', get_stylesheet_directory_uri() . $print_css, array( 'hublog-style' ), false, 'print' );
-        }
-
+    $print_css = '/print.css';
+    if (file_exists(get_stylesheet_directory() . $print_css)) {
+        wp_enqueue_style('hublog-style-print', get_stylesheet_directory_uri() . $print_css, array('hublog-style'), false, 'print');
     }
+
+    //  jQuery を確実に読み込む
+    wp_enqueue_script('jquery');
+
+    // jQuery に依存するスクリプトを追加（例）
+    wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/custom.js', array('jquery'), null, true);
+}
+
 
     function setup_nav_menu() {
         register_nav_menu( 'primary', __( 'Global nav' ) );

@@ -28,6 +28,7 @@ font-size: 14px;
 width: 90%;
 }
 .left_nav.pagetab li{
+	line-height: 1.4;
 }
 .left_nav.pagetab li .item_bg{
 border-radius: 0;
@@ -103,7 +104,7 @@ color: #000;;
 		
       foreach ( $reason_items as $fields ) {
         if ( !empty( $fields[ 'rsn_ttl' ] ) ) {
-          echo '<li class="reason-item p-0 mb-md-2  reason-item_' . sprintf( "%03d", $counter ) . '">';
+          echo '<li class="reason-item p-1 mb-md-2  reason-item_' . sprintf( "%03d", $counter ) . '">';
 
           echo '<span class="item_bg"></span>';
 

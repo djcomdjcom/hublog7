@@ -301,7 +301,7 @@ backdrop-filter:blur(4px);
 width: 100%;
 height: 64px;
 z-index: 299;
-box-shadow:10px 0 5px rgba( 0,0,0,0.1);
+box-shadow:0 0 5px rgba( 0,0,0,0.1);
 }
 
 .entry-content{}
@@ -1206,8 +1206,14 @@ dl.flow {
 dl.flow dt {
   border: none;
   color: #5F401D;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: normal;
+	
+}
+dl.flow dt > span{
+	display:inline-block;
+	width: calc( 100% - 4rem);
+	vertical-align: middle;
 }
 dl.flow dt::before {
   counter-increment: number;
@@ -1376,7 +1382,7 @@ dl.flow dd:last-child:after {
 }
 .anchor:before {
 	content: " ";
-	margin-top: -6rem;
+	margin-top: -7rem;
 	height: 7rem;
 	display: block;
 	visibility: hidden;

@@ -2,7 +2,7 @@
 /**
 * common.css
  * hublog7
- * 20241030
+ * 20250131
  */
 
 @import url("css/bootstrap.min.css");
@@ -3518,7 +3518,8 @@ display: block;
 .global-navi_widgets .f1,
 .global-navi_widgets .f2,
 .global-navi_widgets .f3,
-.global-navi_widgets .f4	{
+.global-navi_widgets .f4,
+.global-navi_widgets .f5{
 	  display:none;
 }
 }

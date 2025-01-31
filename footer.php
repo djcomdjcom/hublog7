@@ -121,6 +121,15 @@ wp_reset_query();
         }
         ?>
       </div>
+      <div class=" f6">
+        <?php
+        if ( has_nav_menu( 'f6' ) ) {
+          wp_nav_menu( array(
+            'theme_location' => 'f6',
+          ) );
+        }
+        ?>
+      </div>
     </div>
   </div>
   </div>
@@ -182,6 +191,15 @@ wp_reset_query();
           if ( has_nav_menu( 'f5' ) ) {
             wp_nav_menu( array(
               'theme_location' => 'f5',
+            ) );
+          }
+          ?>
+        </div>
+        <div class=" f6">
+          <?php
+          if ( has_nav_menu( 'f6' ) ) {
+            wp_nav_menu( array(
+              'theme_location' => 'f6',
             ) );
           }
           ?>

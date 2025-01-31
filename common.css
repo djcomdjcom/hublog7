@@ -3497,15 +3497,21 @@ display: block;
 	fill:#fff; 
 	max-width: 2.5rem;
 }
+.footer-navi-menu ul,
+.footer-navi-menu ul li{
+list-style: none;
+display: block;
+}
+.footer-navi-menu ul.menu,
 .global-navi_widgets ul.menu{
 	padding-left: 0;
+	font-size: 0.8rem;
 }
-
+.footer-navi-menu ul.sub-menu,
 .global-navi_widgets ul.sub-menu{
-	padding-left: 1.5rem;
+	padding-left: 1.0rem;
 	padding-top: 0.5rem;
 }
-
 
 
 @media screen and (max-width: 767.98px) {
@@ -3518,9 +3524,6 @@ display: block;
 }
 	
 
-
-
-.footer-navi-menu {}
 
 #footer .cr {
   text-align: center;

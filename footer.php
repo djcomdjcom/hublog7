@@ -146,8 +146,8 @@ wp_reset_query();
 <p class="aligncenter"> <a href="/hublog_setting">→hublog設定</a></p>
 <?php endif; ?>
 <footer class="" id="footer">
-  <div id="footer_inbox">
-    <div class="wrapper pt-5 pb-5">
+  <div id="footer_inbox" class="pb-5">
+    <div class="wrapper pt-5 pb-5 px-3">
 		
       <div class="footer-navi-menu text-left my-4 row justify-content-between ">
         <div class=" f1 col-sm-6 col-md-3">
@@ -310,10 +310,29 @@ iframes.forEach(function(iframe) {
   container.appendChild(iframe);
 });
 });
+
 	
+//contactform7実装しないページではreCAPTCHAのマークを非表示
+document.addEventListener('DOMContentLoaded', function() {
+    // id属性が"wpcf7-"で始まるdiv要素を検索
+    var cf7Elements = document.querySelectorAll('div[id^="wpcf7-"]');
+    
+    if (cf7Elements.length === 0) {
+        // Contact Form 7のdivがない場合、.grecaptcha-badgeを非表示にするスタイルを追加
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = '.grecaptcha-badge { display: none !important; }';
+        document.head.appendChild(style);
+    }
+});
+
+
 </script>
 <?php if ( is_user_logged_in() ) :?>
 <style>
+	.grecaptcha-badge{
+		bottom: 80vh !important;
+	}
 	.content{
 		display: none;
 	}

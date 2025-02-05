@@ -2546,9 +2546,9 @@ padding: 0.7em;
 .posts .post.style-headline .title, .posts .post.style-headline .date {
   margin-bottom: 0;
 }
-.posts .post.style-headline .title a {
-  font-weight: normal;
-	display: block;
+.posts .post.style-headline a.title:hover{
+	text-decoration: none;
+	opacity: 1;
 }
 .posts .post.style-headline .date {
   text-align: right;
@@ -2556,7 +2556,7 @@ padding: 0.7em;
 }
 
 .posts .post.style-headline .title{
-	width: calc( 100% - 12em);
+	width: calc( 100% - 8em);
 
 }
 @media screen and (max-width:767.98px) {

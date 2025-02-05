@@ -2544,9 +2544,6 @@ padding: 0.7em;
 
 
 .posts .post.style-headline .title, .posts .post.style-headline .date {
-  display: inline-block;
-  vertical-align: bottom;
-  width: 100%;
   margin-bottom: 0;
 }
 .posts .post.style-headline .title a {
@@ -2559,13 +2556,8 @@ padding: 0.7em;
 }
 
 .posts .post.style-headline .title{
-	width: calc( 100% - 10em);
+	width: calc( 100% - 12em);
 
-}
-.posts .post.style-headline .title,
-.posts .post.style-headline .date {
-	display: inline-block;
-	vertical-align:baseline;
 }
 @media screen and (max-width:767.98px) {
 .posts .post.style-headline .title,
@@ -3532,7 +3524,9 @@ display: block;
   left: 0;
   right: 0;
 }
-
+#footer_inbox {
+	overflow: hidden;
+}
 
 @media screen and (max-width:991.98px) {
 #footer_inbox {

@@ -15,16 +15,6 @@ main#main{
 	padding: 0 1rem;
 	overflow: hidden;
 }
-html a{
-	color:#454545;
-}
-@media screen and (max-width: 1199.98px) {
-.mx-fit,global-navi-menu
-.mx-fit.wrapper{
-	margin-left: -1rem !important;
-	margin-right: -1rem !important;
-}
-}
 
 @media screen and (min-width:1200px) {
 main#main{
@@ -240,12 +230,29 @@ font-style: normal;
 /*Layout
 ******************************************************************************/
 .wrapper {
-  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
+
+@media screen and (min-width: 768px) {
+.wrapper{
+	width: 90%;
+	max-width: 70rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+}
+@media screen and (max-width: 1199.98px) {
+.mx-fit,global-navi-menu
+.mx-fit.wrapper{
+	margin-left: -1rem !important;
+	margin-right: -1rem !important;
+}
+}
+
+
 a {
-color: #069;
+color: #454545;
 text-decoration: none;
 outline: none;
 transition: .2s;
@@ -3141,7 +3148,6 @@ top: 54px;
 }
 
 #gaiyou{
-	margin-top: 4rem;
 }
 
 #gaiyou tr{

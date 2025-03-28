@@ -31,12 +31,13 @@ get_header();
 </h1>
 </header>
 <article class="left_nav_wrapper wrapper anchor pb-5">
-  <div class="left_nav pagetab pb-md-4 pt-md-5">
+  <div class="left_nav pagetab pb-md-4 pt-md-3">
     <?php wp_nav_menu(array('theme_location'=>'about-nav', 'fallback_cb'=>'nothing_to_do')); ?>
   </div>
   <div class="entry-content">
     <?php the_content(); ?>
     <?php if (is_page('staff')) :?>
+	  <h2>スタッフ紹介</h2>
     <div id="staff-inbox" class="flexbox justify-content-left mb-5">
       <?php get_template_part('loop','authors'); ?>
     </div>

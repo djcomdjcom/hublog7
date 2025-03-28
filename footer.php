@@ -311,7 +311,22 @@ iframes.forEach(function(iframe) {
 });
 });
 
-	
+//ページ内リンクでヘッダ高分	
+document.addEventListener("DOMContentLoaded", function () {
+  const headerHeight = 100; // 固定ヘッダーの高さ
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top: targetPosition, behavior: "smooth" });
+      }
+    });
+  });
+});
+
 //contactform7実装しないページではreCAPTCHAのマークを非表示
 document.addEventListener('DOMContentLoaded', function() {
     // id属性が"wpcf7-"で始まるdiv要素を検索
@@ -331,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <?php if ( is_user_logged_in() ) :?>
 <style>
 	.grecaptcha-badge{
-		bottom: 80vh !important;
+		bottom: 5rem !important;
 	}
 	.content{
 		display: none;

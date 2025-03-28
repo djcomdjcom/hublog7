@@ -25,7 +25,7 @@ display: inline;
 <h1 class="entry-title"><?php the_title(); ?></h1>
 </header>
 <article class="left_nav_wrapper wrapper anchor pb-5 ">
-  <div class="left_nav pagetab pb-md-4 pt-md-5">
+  <div class="left_nav pagetab pb-md-4 pt-md-3">
 	  <?php wp_nav_menu(array('theme_location'=>'order-nav', 'fallback_cb'=>'nothing_to_do')); ?>
   </div>
   <div class="entry-content">

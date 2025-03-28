@@ -20,11 +20,11 @@ display: inline;
 </style>
 <?php the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hentry builder_content renovation'); ?>>
-<header class="wrapper builder_content_ttl mx-fit">
+<header class="wrapper builder_content_ttl mx-fi3">
 <h1 class="entry-title"><?php the_title(); ?></h1>
 </header>
 <article class="left_nav_wrapper wrapper anchor pb-5">
-  <div class="left_nav pagetab pb-md-4 pt-md-5">
+  <div class="left_nav pagetab pb-md-4 pt-md-3">
     <?php wp_nav_menu(array('theme_location'=>'renov-nav', 'fallback_cb'=>'nothing_to_do')); ?>
   </div>
   <div class="entry-content">

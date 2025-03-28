@@ -42,8 +42,8 @@ endif;
 <?php endif; //!is_home ?>
 <script>
 jQuery(function(){
-jQuery('.posts .post.style-example').addClass('col-6 col-lg-4'); 
-jQuery('.posts .post.style-voice').addClass('col-6 col-lg-4'); 
+jQuery('.posts .post.style-example').addClass('col-sm-6 col-lg-4'); 
+jQuery('.posts .post.style-voice').addClass('col-sm-6 col-lg-4'); 
 jQuery('.posts .post.style-event').addClass('mx-auto'); 
 jQuery('.posts .post.style-event').addClass('mb-5'); 
 jQuery('.posts .post.style-event .thumbnail').addClass('pr-md-5'); 

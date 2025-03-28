@@ -23,7 +23,7 @@ display: inline;
 <header class="wrapper builder_content_ttl mx-fit">
 <h1 class="entry-title"><?php the_title(); ?></h1>
 </header>
-<article class="left_nav_wrapper anchor wrapper pb-5">
+<article class="left_nav_wrapper anchor wrapper pb-3">
   <div class="left_nav pagetab pb-md-4 pt-md-5">
     <?php wp_nav_menu(array('theme_location'=>'reform-nav', 'fallback_cb'=>'nothing_to_do')); ?>
   </div>

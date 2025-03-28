@@ -11,7 +11,7 @@
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
-  <span class="col-sm-5 px-0 mb-3 mb-sm-0 thumbnail"> <span class="attachment">
+  <span class="col-xl-5 px-0 mb-3 mb-sm-0 thumbnail"> <span class="attachment">
   <?php
   if ( function_exists( 'the_post_image' ) ) {
     if ( the_post_image( 'thumbnail' ) === false ) {
@@ -22,7 +22,7 @@
   }
   ?>
   </span> </span>
-  <div class="metabox col-sm-7 align-self-stretch pb-3">
+  <div class="metabox col-xl-7 align-self-stretch  py-3 px-0 pl-lg-3 py-xl-0">
     <?php get_template_part('cat_icon');//カテゴリーアイコン ?>
     <?php
     // Use get_post_meta() to fetch the 'catchcopy' field value for the current post.

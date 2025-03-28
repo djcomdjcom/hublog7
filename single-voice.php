@@ -10,7 +10,7 @@ get_header();
 ?>
 <?php the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hentry maxw-1200 mx-auto'); ?>>
-  <header id="voice-header" class="wrapper mx-fit entry-header mt-0 pt-4 mt-md-5 pb-3 py-md-4 d-sm-flex justify-content-between">
+  <header id="voice-header" class="wrapper entry-header mt-0 pt-4 mt-md-5 pb-3 py-md-4 d-sm-flex justify-content-between">
     <?php if ( post_custom('voice-photo') ) :?>
     <figure class="px-4 voice-photo w100 align-self-center">
       <?php
@@ -32,7 +32,7 @@ get_header();
     </h1>
     <?php endif;?>
   </header>
-  <div class="entry-content wrapper p-3 p-sm-5  mx-fit">
+  <div class="entry-content wrapper py-3 py-sm-5 px-sm-4">
     <?php the_content() ;?>
   </div>
   <!-- .entry-content -->

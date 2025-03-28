@@ -23,3 +23,22 @@
 </nav>
 </div>
 </header>
+<script>
+let lastScroll = 0;
+const header = document.getElementById('globalheader');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    // 下にスクロール → ヘッダー隠す
+    header.style.transform = 'translateY(-150%)';
+  } else {
+    // 上にスクロール → ヘッダー表示
+    header.style.transform = 'translateY(0)';
+  }
+
+  lastScroll = currentScroll;
+});
+
+</script>

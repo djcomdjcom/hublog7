@@ -40,7 +40,7 @@ $post_id_voice = ( post_custom( 'example-inc_voice' ) );
 
 <?php the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hentry rel_lb wrapper maxw-1000 mx-auto'); ?>>
-  <header class="wrapper mx-fit">
+  <header class=" mx-fit">
     <?php if (post_custom('voice-catch')) : ?>
     <h1 class="entry-title"><span><?php echo (post_custom('voice-catch')) ; ?></span></h1>
     <?php else :?>
@@ -49,7 +49,7 @@ $post_id_voice = ( post_custom( 'example-inc_voice' ) );
       </span></h1>
     <?php endif ;?>
   </header>
-  <article class="entry-content wrapper">
+  <article class="entry-content ">
     <?php get_template_part('addcontent_before', apply_filters('hublog_addcontent_before','') ); ?>
     <?php get_template_part('addcontent', $addcontent); ?>
     <?php if (post_custom('voice-catch')) : ?>

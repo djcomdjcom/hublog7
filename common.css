@@ -919,13 +919,12 @@ padding: 1rem;
 }
 
 .entry-title, .index-title, .page-title{
-	padding: 1rem ;
+	padding: 1rem;
 }
-@media screen and (max-width: 1199.98px) {
+@media screen and (max-width: 768px) {
 .entry-title, .index-title, .page-title{
-	padding: 1rem 0;
+	padding: 1rem 1rem;
 }
-
 }
 
 .entry-title.smallheader {

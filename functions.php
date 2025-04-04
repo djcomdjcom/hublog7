@@ -61,11 +61,19 @@ class Theme_Settings {
   }
 
 
-  function setup_theme_supports() {
-    add_editor_style( 'style-editor' );
-    add_theme_support( 'post-thumbnails' );
-    add_theme_support( 'custom-background' );
-    add_theme_support( 'post-formats' , array('post') );
+    function setup_theme_supports() {
+        add_editor_style( 'style-editor' );
+        add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'custom-background' );
+        //add_theme_support( 'post-formats' , array('post') );
+
+        $custom_header_args = array(
+            // Text color and image (empty to use none).
+            //'header-text' => true,
+            'default-image' => get_stylesheet_directory_uri() . '/images/sitetitle.png',
+
+        );
+        add_theme_support( 'custom-header', $custom_header_args );
 
 
 

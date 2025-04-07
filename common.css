@@ -3175,6 +3175,7 @@ top: 54px;
 #gaiyou th{
 	padding: 0.5rem 0;
 	vertical-align: top;
+	min-width: 8rem;
 }
 #gaiyou td{
 	padding: 0.5rem 0 0.5rem clamp(2rem, 0.154rem + 5.13vw, 4rem);

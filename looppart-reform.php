@@ -25,14 +25,17 @@
       <?php the_title(); ?>
       </a></p>
     <div class="reform-nmeta">
-      <?php if ( post_custom('reform-youbou') ) :?>
-      <dl class="reform-youbou">
-        <dt class="title">お客様のご要望・お悩み</dt>
-        <dd class="postcustom"> <?php echo wpautop(post_custom('reform-youbou')); ?> </dd>
-      </dl>
-      <!--reform-youbou-->
-      
-      <?php endif;?>
+		
+		
+<?php $reform_youbou = SCF::get('reform-youbou', get_the_ID()); ?>
+<?php if ( $reform_youbou ) : ?>
+  <dl class="reform-youbou">
+    <dt class="title">お客様のご要望・お悩み</dt>
+    <dd class="postcustom"> <?php echo wpautop(esc_html($reform_youbou)); ?> </dd>
+  </dl>
+<?php endif; ?>
+
+		
     </div>
     <!--event-nmeta--> 
   </div>

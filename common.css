@@ -3152,29 +3152,10 @@ top: 54px;
 #gaiyou tr{
 	position: relative;
 }
-/*
-#gaiyou tr:after{
-	content: "";
-	display: block;
-	width: 100%;
-	border-bottom :2px solid #efefef;
-	inset:0;
-	position: absolute;
-	pointer-events: none;
-}
-#gaiyou tr:first-child:after{
-	content: "";
-	display: block;
-	width: 100%;
-	border-bottom :0;
-	border-bottom :2px solid #efefef;
-	border-top :2px solid #efefef;
-	inset:0;
-	position: absolute;
-}*/
 #gaiyou th{
 	padding: 0.5rem 0;
 	vertical-align: top;
+	min-width: 8rem;
 }
 #gaiyou td{
 	padding: 0.5rem 0 0.5rem clamp(2rem, 0.154rem + 5.13vw, 4rem);

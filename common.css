@@ -1218,7 +1218,7 @@ dl.flow dt {
 }
 dl.flow dt > span{
 	display:inline-block;
-	width: calc( 100% - 4rem);
+	width: calc( 100% - 4em);
 	vertical-align: middle;
 }
 dl.flow dt::before {

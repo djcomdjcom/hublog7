@@ -71,7 +71,7 @@ color: #000;;
 <h1 class="entry-title"><?php the_title(); ?></h1>
 </header>
 <article class="left_nav_wrapper anchor wrapper pb-3">
-  <div class="left_nav pagetab pb-md-4 pt-md-5">
+  <div class="left_nav pagetab pb-md-4 pt-md-3">
 	  <div class="menu-reason-nav-container">
 		  
 		  

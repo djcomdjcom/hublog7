@@ -15,11 +15,10 @@
 
 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => '施工事例「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail">
 		<span class="attachment">
-			<?php if ( function_exists('the_post_image') ) {
-				if ( the_post_image('medium') === false ){
-					?><span class="noimg"></span><?php
-				}
-			} ?>
+<?php if ( function_exists('the_post_image') && !the_post_image([640, 640]) ) : ?>
+  <span class="noimg"></span>
+<?php endif; ?>
+
 		</span>
 	<?php get_template_part('cat_icon');//カテゴリーアイコン ?>
 	</a>

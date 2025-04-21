@@ -3,7 +3,7 @@
  * looppart-side_event.php
  *
  * @テーマ名	hublog7
- * @更新日付	2024.10.01
+ * @更新日付	2025.04.10
  *
  */
 ?>
@@ -11,18 +11,14 @@
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
-  <span class="col-xl-5 px-0 mb-3 mb-sm-0 thumbnail"> <span class="attachment">
-  <?php
-  if ( function_exists( 'the_post_image' ) ) {
-    if ( the_post_image( 'thumbnail' ) === false ) {
-      ?>
-  <img src="<?php echo get_template_image('noimage');?>" alt="No Image" />
-  <?php
-  }
-  }
-  ?>
-  </span> </span>
-  <div class="metabox col-xl-7 align-self-stretch  py-3 px-0 pl-lg-3 py-xl-0">
+  <figure href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'お客様の声「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail col-md-5"> <span class="attachment">
+
+<?php if ( function_exists( 'the_post_image' ) && !the_post_image( 'medium' ) ) : ?>
+  <span class="noimg"></span>
+<?php endif; ?>
+	  
+    </span> </figure>
+  <div class="metabox col-md-7 col-xl-6 align-self-stretch  py-3 px-0 pl-lg-3 py-xl-0">
     <?php get_template_part('cat_icon');//カテゴリーアイコン ?>
     <?php
     // Use get_post_meta() to fetch the 'catchcopy' field value for the current post.

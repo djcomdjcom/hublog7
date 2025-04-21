@@ -8,16 +8,9 @@
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
   <span class="thumbnail mb-2"> <span class="attachment">
-  <?php
-  $thumbnail = get_the_post_thumbnail( get_the_ID(), 'thumbnail' );
-  if ( empty( $thumbnail ) ):
-    ?>
+  <?php if ( function_exists('the_post_image') && !the_post_image('thumbnail') ) : ?>
   <span class="noimg"></span>
-  <?php
-  else :
-    echo $thumbnail;
-  endif;
-  ?>
+  <?php endif; ?>
   </span><!--attachment--> 
   </span> <span class="date my-2">
   <?php the_time('Y/n/j') ?>

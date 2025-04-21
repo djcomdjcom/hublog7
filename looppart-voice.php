@@ -12,16 +12,10 @@
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
   <figure href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'お客様の声「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail"> <span class="attachment">
-  <?php
-  if ( function_exists( 'the_post_image' ) ) {
-    if ( the_post_image( 'medium' ) === false ) {
-      ?>
-<span class="noimg"></span>
-  <?php
-  }
-  }
-  ?>
-  </span> </figure>
+    <?php if ( function_exists('the_post_image') && !the_post_image('medium') ) : ?>
+    <span class="noimg"></span>
+    <?php endif; ?>
+    </span> </figure>
   <div class="">
     <p class="title">
       <?php if(post_custom('catchcopy')) :?>
@@ -29,9 +23,9 @@
       <?php else :?>
       <?php the_title(); ?>
       <?php endif ;?>
-      </p>
+    </p>
     <?php edit_post_link(__('Edit'), ''); ?>
   </div>
-      <span class="todetail"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s'), the_title_attribute('echo=0')); ?>"> 詳細を見る</a></span>
+  <span class="todetail"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s'), the_title_attribute('echo=0')); ?>"> 詳細を見る</a></span> 
   <!--matabox--> 
 </article>

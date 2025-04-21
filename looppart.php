@@ -5,21 +5,14 @@
  * 20240926
  */
 ?>
-
 <article class="post-<?php the_ID(); ?> post style-blog row linkarea p-3 px-md-4 mx-auto mb-3 ">
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span title="新着" class="tmb-icon new">NEW</span>
   <?php endif; ?>
   <span title="<?php the_title_attribute( array( 'before' => 'Permalink to: ', 'after' => '' ) ); ?>" class="thumbnail col-4 px-0 my-2 pr-lg-5"> <span class="attachment">
-  <?php
-  if ( function_exists( 'the_post_image' ) ) {
-    if ( the_post_image( 'medium' ) === false ) {
-      ?>
+  <?php if ( function_exists('the_post_image') && !the_post_image('medium') ) : ?>
   <span class="noimg"></span>
-  <?php
-  }
-  }
-  ?>
+  <?php endif; ?>
   </span> </span>
   <div class="metabox col-8 my-2 px-0 pl-3"> <span class="date d-block py-sm-3">
     <?php the_time('Y/n/j') ?>

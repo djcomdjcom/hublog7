@@ -8,15 +8,10 @@
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
   <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'リフォーム事例「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail"> <span class="attachment">
-  <?php
-  if ( function_exists( 'the_post_image' ) ) {
-    if ( the_post_image( 'thumbnail' ) === false ) {
-      ?>
-	  <span class="noimg"></span>
-  <?php
-  }
-  }
-  ?>
+<?php if ( function_exists('the_post_image') && !the_post_image('thumbnail') ) : ?>
+  <span class="noimg"></span>
+<?php endif; ?>
+
   </span> </a>
   <div class="metabox">
     <p class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s'), the_title_attribute('echo=0')); ?>">

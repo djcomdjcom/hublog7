@@ -44,8 +44,7 @@ endif;
 jQuery(function(){
 jQuery('.posts .post.style-example').addClass('col-sm-6 col-lg-4'); 
 jQuery('.posts .post.style-voice').addClass('col-sm-6 col-lg-4'); 
-jQuery('.posts .post.style-event').addClass('mx-auto'); 
-jQuery('.posts .post.style-event').addClass('mb-5'); 
+jQuery('.posts .post.style-event').removeClass('mx-3 mx-sm-auto').addClass('mx-4 mx-md-auto mb-5'); 
 jQuery('.posts .post.style-event .thumbnail').addClass('pr-md-5'); 
 });
 </script>

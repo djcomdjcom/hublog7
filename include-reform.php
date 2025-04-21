@@ -21,28 +21,16 @@ $('.posts .post.style-example').addClass('col-6 col-lg-4 ');
     ?>
   <div class="posts row justify-content-start pb-4">
     <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-	  
-	  
     <?php if (is_home()||is_front_page()) :?>
     <article class="post-<?php the_ID(); ?> style-example post  p-2 pb-md-3 linkarea">
       <picture title="<?php the_title_attribute( array( 'before' => '施工事例「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail">
-      <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
-      <span title="新着" class="tmb-icon new">NEW</span>
-      <?php endif; ?>
-		  
-		  
-		  <span class="attachment">
-		  
-		  
-        <?php
-        if ( function_exists( 'the_post_image' ) ) {
-          if ( the_post_image( array( 400, 400 ) ) === false ) {
-            ?>
+        <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
+        <span title="新着" class="tmb-icon new">NEW</span>
+        <?php endif; ?>
+        <span class="attachment">
+        <?php if ( function_exists( 'the_post_image' ) && !the_post_image( 'medium' ) ) : ?>
         <span class="noimg"></span>
-        <?php
-        }
-        }
-        ?>
+        <?php endif; ?>
         </span> </picture>
       <?php //get_template_part('cat_icon');//カテゴリーアイコン ?>
       <span class="title mb-0">

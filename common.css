@@ -260,9 +260,11 @@ transition: .2s;
 a:hover {
   color: #ccc;
   text-decoration: underline;
+	pointer-events: 0.85;
 }
 a:hover img {
  filter: brightness(1.2);
+	opacity: 1;
 }
 acronym, abbr {
   border-bottom: 1px dashed #999;
@@ -3232,7 +3234,10 @@ ul.business_set li > .ttl{
 	backdrop-filter:blur(4px);
 	-webkit-backdrop-filter: blur(4px);
 }
-
+/*NAVIGATION*/
+li.links_offer a:hover{
+	filter: brightness(1.2);
+}
 
 #global-navi #access .home-menu > div > ul > li.menu-item-has-children > .sub-menu .sub-menu {
   border: 1px solid #fff;

@@ -163,9 +163,9 @@ $(document).ready(function () {
 </div>
 
 <!--　beforeafter表示-->
+<?php $ba = SCF::get('ba'); ?>
+<?php if (!empty($ba)): ?>
 <div id="before-after" class="rel_lb py-5">
-  <?php $ba = SCF::get('ba'); ?>
-  <?php if (!empty($ba)): ?>
   <?php foreach ($ba as $fields): ?>
   <?php if (!empty($fields['ba_before']) || !empty($fields['add_contents'])): ?>
   <?php
@@ -191,5 +191,5 @@ $(document).ready(function () {
   </div>
   <?php endif; ?>
   <?php endforeach; ?>
-  <?php endif; ?>
 </div>
+<?php endif; ?>

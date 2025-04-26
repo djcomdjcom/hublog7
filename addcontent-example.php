@@ -141,10 +141,10 @@ border-bottom: 1px solid #efefef;
   <?php endif ;?>
   <?php if (post_custom('example-name') || post_custom('example-family') || post_custom('example-area') || post_custom('example-kouhou') || post_custom('example-shikichi') || post_custom('example-yuka') || post_custom ('example-C') || post_custom ('example-Q') || post_custom ('example-UA') ) : ?>
   <div class="row justify-content-between mx-auto px-0 pt-5">
-    <div class="example-entry col-md-8 order-1 order-md-2 px-0 px-sm-3">
+    <div class="example-entry  order-1 order-md-2 ">
       <?php the_content(); ?>
     </div>
-    <div  class="col-md-3 order-2 order-md-1 px-0 px-sm-3" id="example-data">
+    <div  class=" order-2 order-md-1" id="example-data">
       <h3 class="ttl small">Data</h3>
       <table class="mt-0 ml-sm-3">
         <p class="example-area_name">

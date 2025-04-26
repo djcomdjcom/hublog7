@@ -2034,6 +2034,8 @@ padding-right: 10rem;
   padding: 1em;
   min-height: 10%;
 }
+
+
 /*BEFOREAFTER*/
 #reform-meta dl, #addcontent-reform #reform-meta dl {
   padding-left: 0;
@@ -2906,19 +2908,38 @@ order: 2;
 	position: relative;
 	max-height: 85vh;
 }
-	#voice-content .voice_set > figure a img{
-		object-fit: contain;
-		width: 100%;
-		/*
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);*/
-	}
-	
+#voice-content .voice_set > figure a img{
+	object-fit: contain;
+	width: 100%;
+}	
 }
 
 /*single*/
 
+
+.example-entry {
+width:  calc( 100% - (clamp(12.5rem, 1.389rem + 23.15vw, 18.75rem) + clamp(1rem, 0.273rem + 3.64vw, 3rem)));
+position: relative;
+}
+#example-data{
+width: clamp(15rem, 8.333rem + 13.89vw, 18.75rem);
+padding-right: 5%;
+}
+@media screen and (max-width: 1199.98px) {
+#example-data{
+margin-left: -5vw;
+}
+}
+@media screen and (max-width: 767.98px) {
+#example-data{
+width: 100%;
+margin-left: 0;
+	padding-right: 0;
+}
+.example-entry {
+width: 100%;
+}
+}
 
 #example-data caption {
   caption-side: top;

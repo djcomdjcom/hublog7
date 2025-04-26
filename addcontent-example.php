@@ -91,18 +91,6 @@ $(document).ready(function () {
 .gallery-icon img {
 border:0 !important;
 }
-#main.single-example .entry-header h1.entry-title{
-}
-#example-data table{
-width: 100%;
-font-size:clamp(0.75rem, 0.705rem + 0.23vw, 0.875rem);
-}
-#example-data table td,
-#example-data table th{
-text-align: left;
-padding: 0.5rem  0.5rem  0.5rem  0 ;
-border-bottom: 1px solid #efefef;
-}
 </style>
   <?php
   $id = $post->ID;

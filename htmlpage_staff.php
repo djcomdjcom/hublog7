@@ -18,7 +18,7 @@ get_header();
           <?php the_author_meta('division'); ?>
           </span> </div>
         <div class="inbox">
-          <h1 class="mincho d-inline-block mr-4">
+          <h1 class=" d-inline-block mr-4">
             <?php the_author_meta('last_name'); ?>
             <?php the_author_meta('first_name'); ?>
           </h1>

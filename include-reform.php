@@ -1,7 +1,7 @@
 <!--▼▼▼リフォーム事例▼▼▼-->
 <section id="home-reform" class="wrapper pb-4 pb-md-5">
   <header class="content_header text-sm-center mb-3 mb-md-4">
-    <h2 class="ttl mincho">リフォーム施工事例</h2>
+    <h2 class="ttl">リフォーム施工事例</h2>
     <a class="to_index grid" href="/reform/" title="リフォーム事例一覧ページヘのリンク">一覧</a> </header>
   <script>
 jQuery(function($){
@@ -14,7 +14,7 @@ $('.posts .post.style-example').addClass('col-6 col-lg-4 ');
     //            'event_type' => array('newhouse','renovation'),
     //    'order' => 'ASC',
     'orderby' => 'order',
-    'posts_per_page' => 9 //表示件数（ -1 = 全件 ）
+    'posts_per_page' => 6 //表示件数（ -1 = 全件 ）
   );
   $the_query = new WP_Query( $args );
   if ( $the_query->have_posts() ):

@@ -144,53 +144,6 @@ main#main{
 .flexbox.col3 > *:last-child {
   margin-right: 0;
 }
-.stack-box {}
-.stack-box .stack-label {
-  position: relative;
-  z-index: 20;
-  display: block;
-  cursor: pointer;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  text-align: center;
-  background: #E5E1DF;
-}
-.stack-box input:checked + label, .stack-box input:checked + label:hover {
-  background: #847169;
-  color: #fff;
-}
-.stack-box input {
-  display: none;
-}
-.stack-box .stack-content {
-  overflow: hidden;
-  height: auto;
-  position: relative;
-  max-height: 0px;
-  opacity: 0;
-  margin-bottom: 5em;
-}
-.stack-box input:checked + .stack-label + .stack-content {
-  transition: 1s;
-  max-height: 9999px;
-  opacity: 1;
-}
-.stack-box label:after {
-  content: "を表示　\e5c5";
-  font-family: 'Material Icons';
-}
-.stack-box label:before {
-  content: "\e5c5　";
-  font-family: 'Material Icons';
-}
-.stack-box input:checked + label:after {
-  content: "を閉じる　\e5c7";
-  font-family: 'Material Icons';
-}
-.stack-box input:checked + label:before {
-  content: "\e5c7　";
-  font-family: 'Material Icons';
-}
 .round {
   display: block;
   border-radius: 50%;
@@ -199,6 +152,7 @@ main#main{
 em{
 font-style: normal;
 }
+th{font-weight: 500;}
 /*  Image
 ******************************************************************************/
 .wp-caption {
@@ -1173,7 +1127,7 @@ ul.check li:before {
   list-style: none !important;
   display: inline-block;
   margin-right: 0.2em;
-font-weight: bold;
+font-weight: 500;
 }
 .entry-content ul.asterisk,
 ul.asterisk{
@@ -1298,9 +1252,14 @@ dl.flow dd:last-child:after {
   height: 1.5em;
   left: -2em;
 }
-.bold, .fw-bold, .ttl.bold {
+.bold{
   font-weight: bold !important;
 }
+
+.bolder{
+  font-weight: bolder !important;
+}
+
 .center {
   display: block;
   text-align: center;
@@ -1915,7 +1874,7 @@ transform: .2s;
   margin-right: 5px;
 }
 .example-meta .gallery-entry-title {
-  font-weight: bold;
+  font-weight: 500;
   font-size: inherit;
   margin-bottom: 1em;
 }
@@ -2485,7 +2444,7 @@ padding: 0.7em;
   border: none;
   color: #fff;
   padding: 0.7em 0;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 120%;
 }
 .wpcf7-form input[type="submit"]:hover {
@@ -2807,7 +2766,7 @@ z-index: 1;
   border-radius: 0 3px 3px 0;
   color: #fff;
   font-size: 0.85rem;
-  font-weight: bold;
+  font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
   margin-bottom: 1em;
@@ -3205,10 +3164,9 @@ ul.business_set li{
 }
 
 ul.business_set li > .ttl{
-	font-weight: bold;
+	font-weight: bolder;
 	margin-bottom: 0.5rem;
 }
-
 
 
 /*Footer

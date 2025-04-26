@@ -21,13 +21,13 @@ get_header();
     <?php endif;?>
     <?php if(post_custom('catchcopy')) :?>
     <div class="flex-grow-1 voice-post_title">
-      <h1 class="entry-title mincho my-0"> <?php echo nl2br ( post_custom('catchcopy') ); ?> </h1>
+      <h1 class="entry-title  my-0"> <?php echo nl2br ( post_custom('catchcopy') ); ?> </h1>
       <p class="px-3">
         <?php the_title(); ?>
       </p>
     </div>
     <?php else :?>
-    <h1 class="entry-title flex-grow-1 voice-post_title mincho">
+    <h1 class="entry-title flex-grow-1 voice-post_title ">
       <?php the_title(); ?>
     </h1>
     <?php endif;?>
@@ -37,7 +37,7 @@ get_header();
   </div>
   <!-- .entry-content -->
   
-  <div id="voice-content" class="mincho wrapper">
+  <div id="voice-content" class=" wrapper">
     <?php if (post_custom('voice-image-scanned')) : ?>
     <div class="voice-scanned pb-5 mb-0 mb-md-5"> <a href="<?php echo post_custom('voice-scanned-pdf'); ?>" target="_blank"> <img src="<?php echo post_custom('voice-image-scanned'); ?>" /> </a> </div>
     <!--voice-scanned-->
@@ -57,7 +57,7 @@ get_header();
         if ( !empty( $voice_title ) && !empty( $voice_text ) && !empty( $voice_image ) ) {
           echo '<div class="row justify-content-between voice_set pb-5 mb-0 mb-md-5 voice_set' . sprintf( "%02d", $counter ) . '">';
           echo '<div class="col-sm-7 text-cell">';
-          echo '<h3 class="mincho mb-4 mb-md-5">' . $voice_title . '</h3>';
+          echo '<h3 class=" mb-4 mb-md-5">' . $voice_title . '</h3>';
           echo '<div class="voice">' . $voice_text . '</div>';
           echo '</div>';
 

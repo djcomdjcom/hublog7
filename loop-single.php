@@ -40,7 +40,8 @@ $post_id_voice = ( post_custom( 'example-inc_voice' ) );
 
 <?php the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hentry rel_lb wrapper maxw-1000 mx-auto'); ?>>
-  <header class=" mx-fit">
+	
+  <header class="entry-header">
     <?php if (post_custom('voice-catch')) : ?>
     <h1 class="entry-title"><span><?php echo (post_custom('voice-catch')) ; ?></span></h1>
     <?php else :?>

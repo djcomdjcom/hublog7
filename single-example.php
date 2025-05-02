@@ -10,7 +10,7 @@ get_header();
 ?>
 <?php the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hentry'); ?>>
-  <header class="wrapper mx-fit entry-header">
+  <header class="wrapper mx-auto entry-header">
     <h1 class="entry-title mt-0 pt-4 pb-3 py-md-5"><span>
       <?php the_title(); ?>
       </span></h1>

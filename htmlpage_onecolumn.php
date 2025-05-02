@@ -9,7 +9,7 @@ get_header();
 ?>
 <?php the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hentry'); ?>>
-  <header class="wrapper">
+  <header class="entry-header">
     <h1 class="entry-title"><span>
       <?php the_title(); ?>
       </span></h1>

@@ -875,15 +875,6 @@ padding: 1rem;
   color: #000;
 }
 
-.entry-title, .index-title, .page-title{
-	padding: 1rem;
-}
-@media screen and (max-width: 768px) {
-.entry-title, .index-title, .page-title{
-	padding: 1rem 1rem;
-}
-}
-
 .entry-title.smallheader {
   font-size: 1.0em;
   padding: 0.5em 0 0;

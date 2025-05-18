@@ -214,7 +214,7 @@ wp_reset_query();
       
       <?php get_template_part('inc', 'footer_bnrs'); ?>
       <div class="footer-contact mt-4 mb-2 container-fluid">
-        <div class="row mb-5 mt-5 px-5 px-lg-0">
+        <div class="row mb-5 mt-5 px-lg-0 text-center text-md-left">
           <div class="footer-contact-inner1 col-md-4 mb-4"> <a href="/" class="w100 maxw-200 mx-auto">
             <?php
             $footer_logo = get_theme_mod( 'footer_logo' );

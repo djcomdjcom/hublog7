@@ -1,8 +1,8 @@
 <?php
 /**
- * hublog4/page-about.php
+ * hublog7/page-about.php
  *
- * hublog6
+ * hublog7
  * 20230202
  */
 

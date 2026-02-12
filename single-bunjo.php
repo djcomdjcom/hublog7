@@ -40,19 +40,17 @@ $post_id = get_the_ID();
   </ul>
   <?php endif;  wp_reset_postdata();?>
 </nav>
-
-
 <?php if ( is_object_in_term($post->ID,'bunjo_role','bunjo-gallery') || is_object_in_term($post->ID,'bunjo_role','bunjo-performance') || is_object_in_term($post->ID,'bunjo_role','bunjo-equipment') || is_object_in_term($post->ID,'bunjo_role','bunjo-location') ): ?>
 <div class="text-center"> <a href="/bunjo/<?php echo $parent_id = $post->post_parent;?>.html">親ページへ移動</a> </div>
 <?php endif;?>
 <?php //the_post(); ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('hentry'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('hentry wrapper'); ?>>
 <header class="entry-header wrapper">
   <h1 class="entry-title">
     <?php the_title(); ?>
   </h1>
 </header>
-<section id="bunjo_role-1" class="bunjo_role role-concept clearfix anchor">
+<section id="bunjo_role-1" class="bunjo_role role-concept anchor">
   <div class="entry-content">
     <header class="bunjo_role-header">
       <h2 class="entry-title"> <span>CONCEPT</span><span class="small">コンセプト</span> </h2>
@@ -78,7 +76,7 @@ if ( $posts ): ?>
 $i = 2; //ループ回数習得
 foreach ( $posts as $post ): setup_postdata( $post );
 ?>
-<section id="bunjo_role-<?php  echo $i; ?>" class="bunjo_role role-<?php $terms = get_the_terms($post->ID,'bunjo_role');foreach( $terms as $term ) {echo $term->slug;}?> clearfix anchor">
+<section id="bunjo_role-<?php  echo $i; ?>" class="bunjo_role role-<?php $terms = get_the_terms($post->ID,'bunjo_role');foreach( $terms as $term ) {echo $term->slug;}?> anchor">
 <div class="entry-content">
 <header class="bunjo_role-header">
   <h2>
@@ -265,13 +263,13 @@ query_posts( array(
   'posts_per_page' => 5 //表示件数（ -1 = 全件 ）
 ) );
 ?>
-<div id="popup_gallery" class="bunjo_role role-bunjo-example clearfix anchor">
-  <section class="inbox posts posts-popup_gallery clearfix rel_lb">
+<div id="popup_gallery" class="bunjo_role role-bunjo-example anchor">
+  <section class="inbox posts posts-popup_gallery rel_lb">
     <header class="content-header">
       <h2 class="bold">OTHER WORKS</h2>
       <span class="subttl"><?php echo get_option('profile_shop_name');//屋号 ?>の施工事例</span> </header>
     <?php if(have_posts()): while(have_posts()):the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" class="post clearfix style-popup_gallery parent-container"> <?php echo (do_shortcode('[gallery size="medium" columns="0" link="file"]')); ?> <span class="title ">
+    <article id="post-<?php the_ID(); ?>" class="post style-popup_gallery parent-container"> <?php echo (do_shortcode('[gallery size="medium" columns="0" link="file"]')); ?> <span class="title ">
       <?php the_title(); ?>
       </span>
       <?php edit_post_link(__('Edit'), ''); ?>
@@ -386,6 +384,10 @@ get_footer();
 
 ?>
 <style>
+#header::before{
+box-shadow: none;
+}
+.hentry.type-bunjo{}
 @media screen and (max-width:575.98px) {
 }
 #jp-relatedposts{
@@ -433,12 +435,12 @@ width:calc( (100% - 60px) / 6 );
 text-align: center;
 }
 #bunjo_content-nav li *{
-font-size: 1.5vw;
+font-size: clamp(0.875rem, 0.208rem + 1.39vw, 1.25rem);
 }
 #bunjo_content-nav li a{
 color: #fff;
 display: block;
-padding: 0.75rem 1vw;
+padding:1.5rem 1vw;
 transition: .15s;
 z-index: 999999;
 position: relative;
@@ -462,7 +464,7 @@ padding: 0 0.5em;
 white-space: nowrap;
 }
 #bunjo_content-nav li a > span.small{
-font-size: 0.8vw;
+font-size: 0.6em;
 }
 
 
@@ -493,7 +495,7 @@ width:calc( 100% / 6 );
 #bunjo_content-nav{
 width: 100%;
 padding-right: 0;
-padding-left: 50px;
+padding-right: 50px;
 }
 #bunjo_content-nav li a {
 padding: 0.4vw 0;
@@ -506,8 +508,8 @@ text-align: left;
 font-size: 1.5rem;
 }
 #bunjo_content-nav li a span:before{
-content: "\f054";
-font-family: FontAwesome;
+content: "\e5df";
+font-family: 'Material Icons';
 margin-right: 0.5em;
 display: inline-block;
 }
@@ -516,16 +518,18 @@ display: none;
 }
 #bunjo_content-nav li a > span.small{
 display: block;
-font-size: 3.0vw;
 }	
 
 
 }
 
-@media screen and (max-width:575.98px) {
+@media screen and (max-width:767.98px) {
+#bunjo_content-nav{
+padding: 0.5rem 0; 
+}
 #bunjo_content-nav li a > span.small{
 display: block;
-font-size: 3.3vw;
+font-size: 1rem;
 }	
 }
 
@@ -576,13 +580,26 @@ margin-bottom: 0;
 display: block;
 font-size: 1.8rem;
 line-height: 1.7em;
+padding-top: 0.7rem;
 }
 .bunjo_role-header h2 span.small{
 font-size: 0.8rem;
+padding:0 0 0.7rem;
 }
 
 #bunjo_role-1{
+position: relative;
+
+}
+#bunjo_role-1:before{
+content: "";
+display: block;
+position: absolute;
+left: calc( -50vw + 50%);
+right: calc( -50vw + 50%);
+height: 100%;
 background: url("<?php bloginfo('stylesheet_directory'); ?>/images/bg_check.png");
+visibility: visible;
 }
 
 .bunjo_role	.the_content{
@@ -639,8 +656,8 @@ border-bottom: 2px solid #5F401D;
 text-decoration: none;
 }
 .bunjo_role.role-bunjo-performance .tab > li a:after{
-content: "\f054";
-font-family: FontAwesome;
+content: "\e5e1";
+font-family: 'Material Icons';
 display: inline-block;
 margin-left: 0.5em;
 }
@@ -774,19 +791,15 @@ border-radius: 0.5em;
 background: #22AC38;
 color: #fff;
 max-width: 25em;
-margin: 0 auto 4em;
+margin: 2rem auto 2em;
 display: block;
 }
+	
 .bunjo_role .to_form.btn a:before{
-content: "\f0e0";
-font-family: FontAwesome;
+content: "\e158";
+font-family: 'Material Icons';
 margin-right: 1em;
 
-}
-.bunjo_role .to_form.btn a:after{
-content: "\f0da";
-font-family: FontAwesome;
-margin-left: 1em;
 }
 
 #form header h2{

@@ -123,9 +123,6 @@ class Theme_Settings {
     wp_enqueue_style( 'style-common', get_template_directory_uri() . '/common.css?' . $parent_theme->get( 'Version' ) );
     wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.min.css?' . $child_theme->get( 'Version' ) );
 
-    wp_enqueue_style( 'for-ie', get_template_directory_uri() . '/css/ie.css', array( 'hublog-style' ) );
-    $wp_styles->add_data( 'for-ie', 'conditional', 'lt IE 9' );
-
     $print_css = '/print.css';
     if ( file_exists( get_stylesheet_directory() . $print_css ) ) {
       wp_enqueue_style( 'hublog-style-print', get_stylesheet_directory_uri() . $print_css, array( 'hublog-style' ), false, 'print' );
@@ -314,31 +311,14 @@ document.addEventListener( 'wpcf7mailsent', function( event ) {
 add_action( 'admin_head', 'admin_files' );
 
 
-// 呼び出しの指定
-add_shortcode( 'qrcode', 'get_qrcode_tag' );
-
-//Analyticsリンク追加
-function analytics_in_admin_bar() {
-  global $wp_admin_bar;
-  $wp_admin_bar->add_menu( array(
-    'id' => 'dashboard_menu-hublog_setting',
-    'title' => __( 'hublog_setting' ),
-    'href' => home_url( '/hublog_setting/' ),
-    'meta' => array(
-      'target' => '_blank'
-    ),
-  ) );
-}
 
 function my_editor_style_setup() {
   add_theme_support( 'editor-styles' );
   add_editor_style( 'admin_editor_style.css' );
 }
-add_action( 'after_setup_theme', 'my_editor_style_setup' );
 
 
-add_action( 'wp_before_admin_bar_render', 'analytics_in_admin_bar' );
-add_theme_support( 'post-thumbnails' );
+
 //本体ギャラリーCSS停止
 //add_filter( 'use_default_gallery_style', '__return_false' );
 

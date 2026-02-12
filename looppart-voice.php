@@ -11,11 +11,13 @@
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
-  <figure href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'お客様の声「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail"> <span class="attachment">
-    <?php if ( function_exists('the_post_image') && !the_post_image('medium') ) : ?>
-    <span class="noimg"></span>
+  <figure class="post-thumbnail mb-0">
+    <?php if (has_post_thumbnail()) : ?>
+    <?php the_post_thumbnail('medium', ['class' => 'img-fluid', 'alt' => get_the_title()]); ?>
+    <?php else : ?>
+    <span class="noimg" aria-hidden="true"></span>
     <?php endif; ?>
-    </span> </figure>
+  </figure>
   <div class="">
     <p class="title">
       <?php if(post_custom('catchcopy')) :?>

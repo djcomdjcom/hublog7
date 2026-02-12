@@ -37,7 +37,7 @@ get_header();
   <div class="entry-content">
     <?php the_content(); ?>
     <?php if (is_page('staff')) :?>
-	  <h2>スタッフ紹介</h2>
+    <h2>スタッフ紹介</h2>
     <div id="staff-inbox" class="flexbox justify-content-left mb-5">
       <?php get_template_part('loop','authors'); ?>
     </div>
@@ -93,20 +93,41 @@ get_header();
     <section id="enkaku"> <?php echo wpautop( post_custom ('about-enkaku')) ;?> </section>
     <!--enkaku-->
     <?php endif;?>
-    <?php if ( current_user_can( 'administrator' ) ) :?>
-    <p class="edit_theme"><a target="_blank" href="/wp-admin/theme-editor.php?file=html%2F<?php echo $slug_name = $post->post_name; ?>.php&theme=<?php echo get_stylesheet('name'); ?>" title="/wp-admin/theme-editor.php?file=html%2F<?php echo $slug_name = $post->post_name; ?>.php&theme=<?php echo get_stylesheet('name'); ?>"> このincludeテーマを編集 </a></p>
-    <?php endif;?>
-    <?php //インクルードセクション
-    $the_page = get_page( get_the_ID() );
+    <?php if ( current_user_can( 'administrator' ) ) : ?>
+    <?php
+    global $post;
+
+    // 安全に post_name を取得
+    $slug_name = '';
+    if ( isset( $post ) && $post instanceof WP_Post ) {
+      $slug_name = $post->post_name;
+    }
+
+    $theme_name = get_stylesheet(); // 正しいテーマフォルダ名
+    ?>
+    <p class="edit_theme"> <a target="_blank"
+     href="/wp-admin/theme-editor.php?file=html%2F<?php echo esc_attr( $slug_name ); ?>.php&theme=<?php echo esc_attr( $theme_name ); ?>"
+     title="/wp-admin/theme-editor.php?file=html%2F<?php echo esc_attr( $slug_name ); ?>.php&theme=<?php echo esc_attr( $theme_name ); ?>"> このincludeテーマを編集 </a> </p>
+    <?php endif; ?>
+    <?php
+    // インクルードセクション
+    $the_page = get_queried_object(); // ← 最も安全・正確
+
+    $slug_name = '';
+    if ( $the_page instanceof WP_Post ) {
+      $slug_name = $the_page->post_name;
+    }
+
     $include_html_dir = STYLESHEETPATH . '/html/';
-    $include_html_file = $include_html_dir . $the_page->post_name;
-    if ( file_exists( $include_html_file . '.php' ) ) {
+    $include_html_file = $include_html_dir . $slug_name;
+
+    // ファイルが存在する場合のみ include
+    if ( $slug_name && file_exists( $include_html_file . '.php' ) ) {
       include $include_html_file . '.php';
-    } elseif ( file_exists( $include_html_file . '.html' ) ) {
+    } elseif ( $slug_name && file_exists( $include_html_file . '.html' ) ) {
       include $include_html_file . '.html';
     }
     ?>
-    <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
   </div>
   <!-- .entry-content --> 
 </article>
@@ -317,6 +338,4 @@ function updateCurrentClass() {
     }
 }
 </script>
-
-
 <?php get_footer(); ?>

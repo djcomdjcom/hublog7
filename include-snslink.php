@@ -1,7 +1,7 @@
 <div class="snslink wrapper">
   <ul class="flexbox justify-content-around">
     <?php if (get_option('profile_sns_line')): ?>
-    <li class="snslink_line"> <a target="_blank" class="w100" href="http://line.me/ti/p/%40<?php echo get_option('profile_sns_line'); ?>" >
+    <li class="snslink_line"> <a target="_blank" class="w100" href="<?php echo get_option('profile_sns_line'); ?>" >
       <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
         <title><?php echo get_option('profile_corporate_name'); ?>のline公式アカウント</title>
         <g id="snsicon-line" transform="translate(-761 -2899)">

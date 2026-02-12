@@ -21,8 +21,8 @@ get_header();
     <?php endif;?>
     <?php if(post_custom('catchcopy')) :?>
     <div class="flex-grow-1 voice-post_title">
-      <h1 class="entry-title  my-0"> <?php echo nl2br ( post_custom('catchcopy') ); ?> </h1>
-      <p class="px-3">
+      <h1 class="entry-title mb-4"> <?php echo nl2br ( post_custom('catchcopy') ); ?> </h1>
+      <p class="">
         <?php the_title(); ?>
       </p>
     </div>

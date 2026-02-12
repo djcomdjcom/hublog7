@@ -133,7 +133,7 @@ border:0 !important;
       <?php the_content(); ?>
     </div>
     <div  class=" order-2 order-md-1" id="example-data">
-      <h3 class="ttl small">Data</h3>
+      <h3 class="ttl small mt-md-0">Data</h3>
       <table class="mt-0 ml-sm-3">
         <p class="example-area_name">
         <span>

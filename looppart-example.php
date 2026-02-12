@@ -6,16 +6,15 @@
  *
  */
 ?>
+
 <article class="post-<?php the_ID(); ?> style-example post  p-2 p-sm-3 pb-md-3 linkarea">
-  <figure href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => '施工事例「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail">
-    <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
-    <span title="新着" class="tmb-icon new">NEW</span>
-    <?php endif; ?>
-    <span class="attachment">
-    <?php if ( function_exists('the_post_image') && !the_post_image([600, 600]) ) : ?>
-    <span class="noimg"></span>
-    <?php endif; ?>
-    </span>
+  <figure class="post-thumbnail">
+      <?php if (has_post_thumbnail()) : ?>
+        <?php the_post_thumbnail('medium', ['class' => 'img-fluid', 'alt' => get_the_title()]); ?>
+      <?php else : ?>
+        <span class="noimg" aria-hidden="true"></span>
+      <?php endif; ?>
+		
     <?php
     // 投稿に割り当てられたカテゴリーを取得します。
     $terms = get_the_terms( get_the_ID(), 'ex_cat' );
@@ -25,7 +24,8 @@
       }
     }
     ?>
-  </figure>
+  </figure>	
+	
   <?php if(post_custom('catchcopy')) :?>
   <p class="title catchcopy"><?php echo nl2br ( post_custom('catchcopy') ); ?></p>
   <?php else :?>

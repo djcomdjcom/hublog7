@@ -1,9 +1,9 @@
 <?php
 /**
- * looppart-side_event.php
+ * looppart-event.php
  *
  * @テーマ名	hublog7
- * @更新日付	2025.04.10
+ * @更新日付	2025.05.23
  *
  */
 ?>
@@ -45,7 +45,7 @@
       <span class="to_detail">More Info</span> </div>
     <!--event-nmeta--> 
   </div>
-  <span class="todetail"> <a class="btnshine" href="<?php if(post_custom('events-page_url')) :?><?php echo(post_custom('events-page_url')) ;?>" target="_blank<?php else :?><?php the_permalink(); ?><?php endif;?>" rel="bookmark" title="<?php the_title(); ?>">詳細・参加方法</a> </span> 
+  <span class="todetail"> <a class="" href="<?php if(post_custom('events-page_url')) :?><?php echo(post_custom('events-page_url')) ;?>" target="_blank<?php else :?><?php the_permalink(); ?><?php endif;?>" rel="bookmark" title="<?php the_title(); ?>">詳細・参加方法</a> </span> 
   
   <!--metabox-->
   <?php get_template_part('icon_status');//ステイタスアイコン ?>

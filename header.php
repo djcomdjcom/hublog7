@@ -12,7 +12,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title><?php
 	if ( is_home() || is_front_page() ) {
-		bloginfo( 'name' ); 
+		wp_title(' | ',true,'right');
+		bloginfo('name');
 	} else {
 		wp_title(' | ',true,'right');
 		bloginfo('name');
@@ -44,7 +45,7 @@ if ( is_home() || is_front_page() ){
 ?>
 <body <?php body_class(); ?>>
 <?php get_template_part( 'site_header' ); ?>
-<div id="breadcrumb" class="breadcrumbs wrapper" vocab="https://schema.org/" typeof="BreadcrumbList">
+<div id="breadcrumb" class="breadcrumbs wrapper px-xl-0" vocab="https://schema.org/" typeof="BreadcrumbList">
   <div class="inbox">
     <?php
     if ( function_exists( 'bcn_display' ) ) {

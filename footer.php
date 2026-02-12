@@ -7,6 +7,17 @@ wp_reset_query();
 <style>
 <?php echo post_custom('custom_css');
 ?>
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+	
 </style>
 </main>
 
@@ -300,16 +311,7 @@ $(this).html($('<a>').attr('href', 'tel:' + str.replace(/-/g, '')).append(str + 
 }
 });
 	
-document.addEventListener('DOMContentLoaded', function() {
-const iframes = document.querySelectorAll('iframe[src*="youtube.com"]');
 
-iframes.forEach(function(iframe) {
-  const container = document.createElement('div');
-  container.classList.add('responsive-iframe-container');
-  iframe.parentNode.insertBefore(container, iframe);
-  container.appendChild(iframe);
-});
-});
 
 //ページ内リンクでヘッダ高分	
 document.addEventListener("DOMContentLoaded", function () {
@@ -341,8 +343,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function wrapResponsiveIframes() {
+  const iframes = document.querySelectorAll('iframe[src*="youtube.com"]:not(.wrapped)');
+  
+  iframes.forEach(function (iframe) {
+    const parent = iframe.parentElement;
+
+    if (parent && parent.tagName === 'P' && parent.childNodes.length === 1) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'responsive-iframe-container';
+
+      parent.parentNode.insertBefore(wrapper, parent);
+      wrapper.appendChild(iframe);
+      iframe.classList.add('wrapped');
+      parent.remove();
+    } else if (!iframe.closest('.responsive-iframe-container')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'responsive-iframe-container';
+      iframe.parentNode.insertBefore(wrapper, iframe);
+      wrapper.appendChild(iframe);
+      iframe.classList.add('wrapped');
+    }
+  });
+}
+
+// DOM構築後 + 追加ロード対応
+document.addEventListener('DOMContentLoaded', function () {
+  wrapResponsiveIframes();
+  setTimeout(wrapResponsiveIframes, 1000); // 1秒後に再実行（lazyload対策）
+});
 
 </script>
+
 <?php if ( is_user_logged_in() ) :?>
 <style>
 	.grecaptcha-badge{

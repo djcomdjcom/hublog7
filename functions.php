@@ -335,4 +335,44 @@ add_action( 'get_footer', 'lm_dequeue_footer_styles' );
 function lm_dequeue_footer_styles() {
   wp_dequeue_style( 'yarppRelatedCss' );
 }
+
+
+//zipaddr-jp 有効化
+function hublog_zipaddr_standard() {
+
+    wp_enqueue_script(
+        'ajaxzip3',
+        'https://ajaxzip3.github.io/ajaxzip3.js',
+        [],
+        null,
+        true
+    );
+
+    wp_add_inline_script('ajaxzip3', "
+        document.addEventListener('DOMContentLoaded', function () {
+
+            function bindZip() {
+                if (typeof AjaxZip3 === 'undefined') return;
+
+                var zip = document.getElementById('zip');
+                if (!zip) return;
+
+                var exec = function () {
+                    AjaxZip3.zip2addr('zip', '', 'pref', 'addr');
+                };
+
+                zip.removeEventListener('input', exec);
+                zip.addEventListener('input', exec);
+                zip.addEventListener('blur', exec);
+            }
+
+            bindZip();
+
+            // CF7再描画対策
+            document.addEventListener('wpcf7init', bindZip);
+
+        });
+    ");
+}
+add_action('wp_enqueue_scripts', 'hublog_zipaddr_standard');
 ?>

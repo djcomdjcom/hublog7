@@ -1,23 +1,47 @@
 <?php
-// Assuming the post ID is available or get it from the global $post object
 $post_id = get_the_ID();
 
-// Fetch the values of 'remove-gallery' and 'renove-gallery' custom fields for the current post
-$remove_gallery = get_post_meta($post_id, 'remove-gallery', true);
-$renove_gallery = get_post_meta($post_id, 'renove-gallery', true);
+/**
+ * remove-gallery / remove_gallery 両対応
+ */
+$remove_gallery =
+    get_post_meta($post_id, 'remove_gallery', true);
 
-// Check if both custom fields are not set to 'gallery_off'
-if ($remove_gallery !== 'gallery_off' && $renove_gallery !== 'gallery_off'):
+if ($remove_gallery === '') {
+    $remove_gallery =
+        get_post_meta($post_id, 'remove-gallery', true);
+}
+
+/**
+ * renove-gallery / renove_gallery 両対応
+ */
+$renove_gallery =
+    get_post_meta($post_id, 'renove_gallery', true);
+
+if ($renove_gallery === '') {
+    $renove_gallery =
+        get_post_meta($post_id, 'renove-gallery', true);
+}
+
+/**
+ * gallery_off でなければ表示
+ */
+if ($remove_gallery !== 'gallery_off' && $renove_gallery !== 'gallery_off') :
 ?>
 
-<div id="galleryslider" class="mx-fit py-0 sliderArea rel_lb <?php if (post_custom('gallery-caption') == 'caption_visible') echo 'caption_visible'; ?>">
+<?php
+$gallery_caption = get_post_meta(get_the_ID(), 'gallery_caption', true);
+?>
+<div id="galleryslider"
+     class="mx-fit py-0 sliderArea rel_lb
+     <?php if ($gallery_caption === 'caption_visible') echo 'caption_visible'; ?>">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/js/slick/slick.css" media="screen">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/js/slick/slick-theme.css" media="screen">
   <script src="<?php bloginfo('stylesheet_directory'); ?>/js/slick/slick.min.js"></script> 
   <script>
 jQuery(function($){
 $('#galleryslider .gallery-size-large').addClass('slider_thumb slider'); 
-$('#galleryslider .gallery-size-thumbnail ').addClass('thumb wrapper mx-auto pb-3 pb-md-3'); 
+$('#galleryslider .gallery-size-thumbnail ').addClass('thumb wrapper mx-auto py-3 py-md-3'); 
 
 $(document).ready(function () {
 	$('.slider_thumb').slick({
@@ -125,85 +149,206 @@ border:0 !important;
 <?php endif ?>
 <article id="example-content" class="py-4 py-md-5 rel_lb">
   <?php if(post_custom('catchcopy')) :?>
-  <h2 class="title mt-3 py-md-5 px-sm-3"> <span class="catchcopy "> <?php echo nl2br ( post_custom('catchcopy') ); ?> </span> </h2>
+  <h2 class="title mt-3 py-md-5 px-sm-0"> <span class="catchcopy "> <?php echo nl2br ( post_custom('catchcopy') ); ?> </span> </h2>
   <?php endif ;?>
-  <?php if (post_custom('example-name') || post_custom('example-family') || post_custom('example-area') || post_custom('example-kouhou') || post_custom('example-shikichi') || post_custom('example-yuka') || post_custom ('example-C') || post_custom ('example-Q') || post_custom ('example-UA') ) : ?>
+<?php
+$fields = [
+    'remove-gallery',
+    'example-name',
+    'example-family',
+    'example-area',
+    'example-kouhou',
+    'example-shikichi',
+    'example-yuka',
+    'example-C',
+    'example-Q',
+    'example-UA',
+    'example_etaAC',
+    'example_BEI',
+    'example_BELS_star',
+    'example_BELS_note'
+];
+
+$has_data = array_filter(array_map(function($key) use ($post_id) {
+    // アンダースコア版
+    $underscore = str_replace('-', '_', $key);
+    $val = get_post_meta($post_id, $underscore, true);
+
+    // ハイフン版
+    if ($val === '') {
+        $val = get_post_meta($post_id, $key, true);
+    }
+
+    return $val;
+}, $fields));
+
+if (!empty($has_data)) :
+?>    
   <div class="row justify-content-between mx-auto px-0 pt-5">
     <div class="example-entry  order-1 order-md-2 ">
       <?php the_content(); ?>
     </div>
     <div  class=" order-2 order-md-1" id="example-data">
       <h3 class="ttl small mt-md-0">Data</h3>
-      <table class="mt-0 ml-sm-3">
-        <p class="example-area_name">
-        <span>
         
-        <?php if (post_custom('example-name')) :?>
-        <caption class="my-4">
-        <?php echo post_custom('example-name'); ?>様邸
-        </caption>
-        <?php endif ; ?>
-        <?php if (post_custom('example-family')) :?>
-        <tr>
-          <th>家族構成</th>
-          <td><?php echo wpautop(post_custom('example-family')); ?></td>
-        </tr>
-        <?php endif ; ?>
-        <?php if (post_custom('example-area')) :?>
-        <tr>
-          <th>施工エリア</th>
-          <td><?php echo post_custom('example-area'); ?></td>
-        </tr>
-        <?php endif ; ?>
-        <?php if (post_custom('example-kouhou')) :?>
-        <tr>
-          <th>工法・構造</th>
-          <td><?php echo post_custom('example-kouhou'); ?></td>
-        </tr>
-        <?php endif ; ?>
-        <?php if (post_custom('example-taishin')) :?>
-        <tr>
-          <th>耐震等級</th>
-          <td><?php echo post_custom('example-taishin'); ?></td>
-        </tr>
-        <?php endif ; ?>
-        <?php if (post_custom('example-shikichi')) :?>
-        <tr>
-          <th>敷地面積</th>
-          <td><?php echo post_custom('example-shikichi'); ?></td>
-        </tr>
-        <?php endif ; ?>
-        <?php if (post_custom('example-yuka')) :?>
-        <tr>
-          <th>床面積</th>
-          <td><?php echo post_custom('example-yuka'); ?></td>
-        </tr>
-        <?php endif ; ?>
-        <?php if (post_custom('example-madori')) :?>
-        <tr>
-          <th>間取</th>
-          <td><?php echo post_custom('example-madori'); ?></td>
-        </tr>
-        <?php endif ; ?>
-        <?php if (post_custom('example-C')) :?>
-        <tr>
-          <th>C値</th>
-          <td><?php echo post_custom('example-C'); ?></td>
-        </tr>
-        <?php endif ;?>
-        <?php if (post_custom('example-Q')) :?>
-        <tr>
-          <th>Q値</th>
-          <td><?php echo post_custom('example-Q'); ?></td>
-        </tr>
-        <?php endif ;?>
-        <?php if (post_custom('example-UA')) :?>
-        <tr>
-          <th>UA値</th>
-          <td><?php echo post_custom('example-UA'); ?></td>
-        </tr>
-        <?php endif ;?>
-      </table>
+<?php
+if (!function_exists('hublog_meta')) {
+    function hublog_meta($post_id, $base_key) {
+
+        // アンダースコア版
+        $underscore = str_replace('-', '_', $base_key);
+        $val = get_post_meta($post_id, $underscore, true);
+
+        // ハイフン版
+        if ($val === '') {
+            $val = get_post_meta($post_id, $base_key, true);
+        }
+
+        return $val;
+    }
+}
+?>
+<table class="mt-0 ml-sm-3">
+
+<?php if (hublog_meta($post_id, 'example-name')) : ?>
+<caption class="my-4">
+<?php echo esc_html(hublog_meta($post_id, 'example-name')); ?>様邸
+</caption>
+<?php endif; ?>
+
+<?php if (hublog_meta($post_id, 'example-family')) : ?>
+<tr>
+  <th>家族構成</th>
+  <td><?php echo wpautop(hublog_meta($post_id, 'example-family')); ?></td>
+</tr>
+<?php endif; ?>
+
+<?php if (hublog_meta($post_id, 'example-area')) : ?>
+<tr>
+  <th>施工エリア</th>
+  <td><?php echo esc_html(hublog_meta($post_id, 'example-area')); ?></td>
+</tr>
+<?php endif; ?>
+
+<?php if (hublog_meta($post_id, 'example-kouhou')) : ?>
+<tr>
+  <th>工法・構造</th>
+  <td><?php echo esc_html(hublog_meta($post_id, 'example-kouhou')); ?></td>
+</tr>
+<?php endif; ?>
+
+<?php if (hublog_meta($post_id, 'example-taishin')) : ?>
+<tr>
+  <th>耐震等級</th>
+  <td><?php echo esc_html(hublog_meta($post_id, 'example-taishin')); ?></td>
+</tr>
+<?php endif; ?>
+
+<?php if (hublog_meta($post_id, 'example-shikichi')) : ?>
+<tr>
+  <th>敷地面積</th>
+  <td><?php echo esc_html(hublog_meta($post_id, 'example-shikichi')); ?></td>
+</tr>
+<?php endif; ?>
+
+<?php if (hublog_meta($post_id, 'example-yuka')) : ?>
+<tr>
+  <th>床面積</th>
+  <td><?php echo esc_html(hublog_meta($post_id, 'example-yuka')); ?></td>
+</tr>
+<?php endif; ?>
+
+<?php if (hublog_meta($post_id, 'example-madori')) : ?>
+<tr>
+  <th>間取</th>
+  <td><?php echo esc_html(hublog_meta($post_id, 'example-madori')); ?></td>
+</tr>
+<?php endif; ?>
+
+</table>
+        
+<?php
+// =======================
+// 建物性能まとめ
+// =======================
+
+$bels_star = hublog_meta($post_id, 'example_BELS_star');
+$bels_note = hublog_meta($post_id, 'example_BELS_note');
+
+$c_value  = hublog_meta($post_id, 'example-C');
+$q_value  = hublog_meta($post_id, 'example-Q');
+$ua_value = hublog_meta($post_id, 'example-UA');
+$eta_ac   = hublog_meta($post_id, 'example_etaAC');
+$bei      = hublog_meta($post_id, 'example_BEI');
+
+if (
+    $bels_star || $c_value || $q_value ||
+    $ua_value || $eta_ac || $bei
+) :
+?>
+<table class="mt-0 ml-sm-3 mt-5">
+<caption class="my-3">
+建物性能
+</caption>
+<tbody>
+    <?php if ($bels_star && is_numeric($bels_star)) : ?>
+    <tr>
+  <th colspan="2" class="performance-badge text-center">
+        BELS</th>
+    </tr>
+    <tr>
+    <td colspan="2" class="text-center">
+                <?php
+        $bels_star = (int)$bels_star;
+        echo '<span class="bels_stars">';
+        echo str_repeat('★', $bels_star) . str_repeat('☆', 5 - $bels_star);
+        echo '</span>';
+        if ($bels_note) {
+            echo '（' . esc_html($bels_note) . '）';
+        }
+        ?>
+</td></tr>
+    <?php endif; ?>
+
+    <?php if ($c_value) : ?>
+      <tr class="performance-badge">
+        <th>C値</th><td>
+        <?php echo esc_html($c_value); ?>
+      </td></tr>
+    <?php endif; ?>
+
+    <?php if ($q_value) : ?>
+      <tr class="performance-badge">
+        <th>Q値</th><td>
+        <?php echo esc_html($q_value); ?>
+      </td></tr>
+    <?php endif; ?>
+
+    <?php if ($ua_value) : ?>
+      <tr class="performance-badge">
+        <th>UA値</th><td>
+        <?php echo esc_html($ua_value); ?>
+      </td></tr>
+    <?php endif; ?>
+
+    <?php if ($eta_ac) : ?>
+      <tr class="performance-badge">
+        <th>ηAC値</th><td>
+        <?php echo esc_html($eta_ac); ?>
+      </td>
+    </tr>
+    <?php endif; ?>
+    <?php if ($bei && is_numeric($bei)) : ?>
+        <tr class="example-bei"><td colspan="2" class=""><span>一次エネルギー削減率　</span><?php echo round((1 - $bei) * 100); ?>%</td></tr>
+    <?php endif; ?>
+
+  </tbody>
+</table>
+<?php endif; ?>
+        
+        
+        
+        
     </div>
     <!--example-data--> 
     

@@ -8,7 +8,7 @@
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
-  <figure href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'お客様の声「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail"> <span class="attachment">
+  <figure href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'お客様の声「', 'after' => '」詳細ページへ' ) ); ?>" class="thumbnail">
     <?php
     if ( function_exists( 'the_post_image' ) ) {
       if ( the_post_image( 'medium' ) === false ) {
@@ -17,8 +17,7 @@
     <?php
     }
     }
-    ?>
-    </span> </figure>
+    ?></figure>
   <div class="metabox"> <span class="date py-2">
     <?php the_time('Y/n/j') ?>
     </span>

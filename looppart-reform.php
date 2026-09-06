@@ -5,7 +5,7 @@
  * 20250407
  */
 ?>
-<article class="post-<?php the_ID(); ?> post row justify-content-around style-reform linkarea col-sm-12 py-3 py-md-4 mb-md-4 mb-lg-5">
+<article class="post-<?php the_ID(); ?> post row justify-content-around style-reform linkarea  py-3 py-md-4 mb-md-4 mb-lg-5">
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span title="新着" class="tmb-icon new">NEW</span>
   <?php endif; ?>

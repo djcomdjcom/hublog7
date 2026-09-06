@@ -10,11 +10,11 @@
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span title="新着" class="tmb-icon new">NEW</span>
   <?php endif; ?>
-  <span title="<?php the_title_attribute( array( 'before' => 'Permalink to: ', 'after' => '' ) ); ?>" class="thumbnail col-sm-5 pr-sm-5 my-2"> <span class="attachment">
+  <figure title="<?php the_title_attribute( array( 'before' => 'Permalink to: ', 'after' => '' ) ); ?>" class="thumbnail col-sm-5 pr-sm-5 my-2">
   <?php if ( function_exists('the_post_image') && !the_post_image('medium') ) : ?>
   <span class="noimg"></span>
   <?php endif; ?>
-  </span> </span>
+  </figure>
   <div class="metabox col-sm-7 col-xl-6 align-self-stretch  py-3 px-3 pr-sm-0 py-xl-0"> <span class="date d-block pb-3 py-lg-3">
     <?php the_time('Y/n/j') ?>
     </span>

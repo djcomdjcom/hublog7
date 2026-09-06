@@ -113,8 +113,8 @@ $(document).ready(function () {
     ?>
     <?php echo do_shortcode('[gallery columns="0" link="file" title="true"  description="true" size="large" exclude="' . $exclude . '"]'); ?> <?php echo do_shortcode('[gallery columns="0" link="none" title="false" caption="false" description="false" size="thumbnail"  exclude="' . $exclude . '"]'); ?> </div>
   <?php endif; ?>
-  <div id="reform-meta" class="py-4 maxw-1000 mx-auto px-3 px-xl-0">
-    <div class="reform-cf_itens py-4">
+    
+    
       <?php
       $area = SCF::get( 'reform-area' );
       $name = SCF::get( 'reform-name' );
@@ -124,6 +124,10 @@ $(document).ready(function () {
       $kikan = SCF::get( 'reform-kikan' );
       $yosan = SCF::get( 'reform-yosan' );
       ?>
+    
+<?php if ($area || $name || $madori || $yuka || $kasho || $kikan || $yosan) : ?>
+  <div id="reform-meta" class="py-4 maxw-1000 mx-auto px-3 px-xl-0">
+    <div class="reform-cf_itens py-4">
       <?php if ($name) : ?>
       <span class="example-area_name">[ <span class="example-area"><?php echo esc_html($area); ?></span>&nbsp;&nbsp; <span class="example-name"><?php echo esc_html($name); ?></span> ] </span>
       <?php endif ?>
@@ -161,11 +165,13 @@ $(document).ready(function () {
     <?php endif ?>
   </div>
 </div>
+<?php endif ?>
+
 
 <!--　beforeafter表示-->
 <?php $ba = SCF::get('ba'); ?>
 <?php if (!empty($ba)): ?>
-<div id="before-after" class="rel_lb py-5">
+<div id="before-after" class="rel_lb py-4">
   <?php foreach ($ba as $fields): ?>
   <?php if (!empty($fields['ba_before']) || !empty($fields['add_contents'])): ?>
   <?php

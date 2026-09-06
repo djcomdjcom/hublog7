@@ -42,6 +42,8 @@ endif;
 <?php endif; //!is_home ?>
 <script>
 jQuery(function(){
+jQuery('.posts .post.style-reform').addClass('px-3 px-md-0'); 
+jQuery('.posts .post.style-video').addClass('col-sm-6 col-lg-4'); 
 jQuery('.posts .post.style-example').addClass('col-sm-6 col-lg-4'); 
 jQuery('.posts .post.style-voice').addClass('col-sm-6 col-lg-4'); 
 jQuery('.posts .post.style-event').removeClass('mx-3 mx-sm-auto').addClass('mx-4 mx-md-auto mb-5'); 

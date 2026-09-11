@@ -6,7 +6,7 @@
  *
  */
 ?>
-<div id="addcontent-reform" class="mx-fit py-0 rel_lb">
+<div id="addcontent-reform" class="py-0 rel_lb">
   <?php $fields = SCF::get('reform-gallery'); ?>
   <?php if ($fields): ?>
   <!-- はい（true）を選択した場合に表示したい内容 -->
@@ -111,8 +111,9 @@ $(document).ready(function () {
 
     $exclude = implode( ',', $excludes );
     ?>
-    <?php echo do_shortcode('[gallery columns="0" link="file" title="true"  description="true" size="large" exclude="' . $exclude . '"]'); ?> <?php echo do_shortcode('[gallery columns="0" link="none" title="false" caption="false" description="false" size="thumbnail"  exclude="' . $exclude . '"]'); ?> </div>
-  <?php endif; ?>
+    <?php echo do_shortcode('[gallery columns="0" link="file" title="true"  description="true" size="large" exclude="' . $exclude . '"]'); ?> <?php echo do_shortcode('[gallery columns="0" link="none" title="false" caption="false" description="false" size="thumbnail"  exclude="' . $exclude . '"]'); ?> 
+    </div><!--galleryslider-->
+<?php endif; ?>
     
     
       <?php
@@ -164,7 +165,6 @@ $(document).ready(function () {
     </dl>
     <?php endif ?>
   </div>
-</div>
 <?php endif ?>
 
 
@@ -199,3 +199,4 @@ $(document).ready(function () {
   <?php endforeach; ?>
 </div>
 <?php endif; ?>
+</div><!--addcontent-reform"-->

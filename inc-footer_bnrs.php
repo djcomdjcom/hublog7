@@ -20,8 +20,17 @@ if ( $the_query->have_posts() ):
   ?>
 
 <!--home-event-->
+<script>
+jQuery(function($) {
+  $('.footer_bnrs_title').each(function() {
+    if ($(this).text().trim() === 'フッターバナー') {
+      $(this).hide();
+    }
+  });
+});
+</script>
 <section class="wrapper" id="footer_bnrs">
-  <p class="text-center">
+  <p class="text-center footer_bnrs_title">
     <?php
     $terms = get_terms( 'bnr_type' );
     foreach ( $terms as $term ) {

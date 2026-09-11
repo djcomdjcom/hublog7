@@ -120,7 +120,9 @@ class Theme_Settings {
     $child_theme = wp_get_theme(); // 子テーマ
     $parent_theme = wp_get_theme( get_template() ); // 親テーマ
 
-    wp_enqueue_style( 'style-common', get_template_directory_uri() . '/common.css?' . $parent_theme->get( 'Version' ) );
+    $common_css_path = get_template_directory() . '/common2.css';
+    $common_css_version = file_exists( $common_css_path ) ? (string) filemtime( $common_css_path ) : $parent_theme->get( 'Version' );
+    wp_enqueue_style( 'style-common', get_template_directory_uri() . '/common2.css', array(), $common_css_version );
     wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.min.css?' . $child_theme->get( 'Version' ) );
 
     $print_css = '/print.css';

@@ -86,10 +86,15 @@ get_header();
     $cf_sample = SCF::get( 'related_post' );
     foreach ( $cf_sample as $field ) {
       ?>
-    <a class="d-flex" href="<?php echo get_permalink($field); ?>">
-    <figure class="w100 col-4 col-md-2"> <?php echo get_the_post_thumbnail($field); ?> </figure>
-    <p class="flex-grow-1 pl-4 pl-md-5"><?php echo get_post($field)->post_title; ?></p>
-    </a>
+<a class="d-flex" href="<?php echo get_permalink($field); ?>">
+  <figure class="w100 col-4 col-md-2">
+    <?php echo get_the_post_thumbnail($field, 'thumbnail'); ?>
+  </figure>
+  <p class="flex-grow-1 pl-4 pl-md-5">
+    <?php echo get_post($field)->post_title; ?>
+  </p>
+</a>
+</a>
     <?php } ?>
   </div>
     <?php else: ?>

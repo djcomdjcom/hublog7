@@ -58,7 +58,7 @@ wp_reset_query();
       </div>
     </div>
     <?php if (get_option('profile_teikitenken')) : ?>
-    <p class="btn arrow center my-5"><a class="bg-white shadow text-success" href="<?php echo get_option('profile_teikitenken'); ?>">定期点検のお申し込み</a></p>
+    <p class="btn arrow profile_teikitenken center my-5"><a class="bg-white shadow"  href="<?php echo get_option('profile_teikitenken'); ?>">定期点検のお申し込み</a></p>
     <?php endif ;?>
     <div class="gni-address mt-3">
       <nav id="access">
@@ -403,10 +403,47 @@ document.addEventListener('DOMContentLoaded', function () {
 <?php endif;?>
 <?php wp_footer(); ?>
 </body>
-<?php if ( is_user_logged_in() ) : ?>
-<div class="to_dashboard">
-  <?php edit_post_link(__('Edit'), '', ''); ?>
-  <a href="<?php echo admin_url();?>">管理画面</a> </div>
-<!--inbox-->
-<?php endif; ?>
-</html>
+<?php if ( current_user_can('edit_posts') && is_singular() ) : ?>
+<div class="edit-links">
+  <a href="<?php echo esc_url(get_edit_post_link()); ?>"
+     class="lp-edit-link"
+     target="_blank"
+     title="このページを編集">
+      <svg
+    aria-hidden="true"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    style="vertical-align:-2px; margin-right:4px;"
+  >
+    <path
+      fill="currentColor"
+      d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79z"
+    />
+  </svg> 編集
+  </a>
+  <a class="wp-admin-link" target="_blank" href="/wp-admin">管理画面</a>
+</div>
+
+<style>
+.edit-links {
+  font-size: 13px;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 99999;
+}
+.edit-links a {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+  margin-right: 10px;
+}
+.edit-links a:hover {
+  background: rgba(0,0,0,0.8);
+}
+</style>
+<?php endif; ?></html>

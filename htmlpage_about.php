@@ -153,11 +153,6 @@ $gettemplate01 = ( post_custom( 'gettempale01' ) );
 <!-- .entry-utility -->
 </article>
 <!--.hentry-->
-<style>
-.modal.active {
-	display: flex;
-}
-</style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // モーダルの生成

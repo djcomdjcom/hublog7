@@ -33,7 +33,7 @@ if ($remove_gallery !== 'gallery_off' && $renove_gallery !== 'gallery_off') :
 $gallery_caption = get_post_meta(get_the_ID(), 'gallery_caption', true);
 ?>
 <div id="galleryslider"
-     class="mx-fit py-0 sliderArea rel_lb
+     class=" py-0 sliderArea rel_lb
      <?php if ($gallery_caption === 'caption_visible') echo 'caption_visible'; ?>">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/js/slick/slick.css" media="screen">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/js/slick/slick-theme.css" media="screen">
@@ -41,7 +41,7 @@ $gallery_caption = get_post_meta(get_the_ID(), 'gallery_caption', true);
   <script>
 jQuery(function($){
 $('#galleryslider .gallery-size-large').addClass('slider_thumb slider'); 
-$('#galleryslider .gallery-size-thumbnail ').addClass('thumb wrapper mx-auto py-3 py-md-3'); 
+$('#galleryslider .gallery-size-thumbnail ').addClass('thumb container mx-auto py-3 py-md-3'); 
 
 $(document).ready(function () {
 	$('.slider_thumb').slick({
@@ -142,7 +142,7 @@ border:0 !important;
   // カンマ区切りの除外IDを再び文字列に変換
   $exclude = implode( ',', $excludes );
   ?>
-  <?php echo (do_shortcode('[gallery columns="0" link="file" title="true"  description="true" size="large" exclude="' . $exclude . '"]')); ?>
+  <?php echo (do_shortcode('[gallery class="mx-fit" columns="0" link="file" title="true"  description="true" size="large" exclude="' . $exclude . '"]')); ?>
   <?php  echo (do_shortcode('[gallery columns="0" link="none" title="false" caption="false" description="false" size="thumbnail"  exclude="'.$exclude.'"]')); ?>
 </div>
 <!--example-slider-->

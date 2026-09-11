@@ -11,7 +11,7 @@
   <?php if ( is_new( WHATSNEW_TTL ) ) : ?>
   <span class="tmb-icon new">新着</span>
   <?php endif; ?>
-  <figure class="post-thumbnail mb-0">
+  <figure class="post-thumbnail">
     <?php if (has_post_thumbnail()) : ?>
     <?php the_post_thumbnail('medium', ['class' => 'img-fluid', 'alt' => get_the_title()]); ?>
     <?php else : ?>

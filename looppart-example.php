@@ -14,6 +14,8 @@
       <?php else : ?>
         <span class="noimg" aria-hidden="true"></span>
       <?php endif; ?>
+
+  </figure>	
 		
     <?php
     // 投稿に割り当てられたカテゴリーを取得します。
@@ -23,9 +25,7 @@
         echo '<span class="cat_icon ' . esc_attr( $term->slug ) . '">' . esc_html( $term->name ) . '</span>';
       }
     }
-    ?>
-  </figure>	
-	
+    ?>	
   <?php if(post_custom('catchcopy')) :?>
   <p class="title catchcopy"><?php echo nl2br ( post_custom('catchcopy') ); ?></p>
   <?php else :?>
